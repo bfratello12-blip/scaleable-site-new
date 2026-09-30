@@ -17,6 +17,17 @@ const IMAGE_SOURCES: Record<number, string> = {
   2: "/brand/scaleable_product_profit_02.png",
   3: "/brand/scaleable_profit_roas_mer_03.png",
   4: "/brand/scaleable_channel_performance_04.png",
+  5: "/brand/scaleable_05.png",
+  6: "/brand/google_ads_06.png",
+  7: "/brand/meta_ads_07.png",
+  8: "/brand/meta_ads_creative_scaleable_08.png",
+  9: "/brand/scaleable_product_profit_09.png",
+  11: "/brand/_scaleable_profit_dashboard_main_11.png",
+  12: "/brand/scaleable_adspend_vs_profit_12.png",
+  13: "/brand/scaleable_profit_vs_ROAS_13.png",
+  14: "/brand/scaleable_product_profit_14.png",
+  15: "/brand/scaleable_channel_revenue_vs_adspend_15.png",
+  16: "/brand/scaleable_event_performance_16.png",
 };
 
 function gcd(a: number, b: number): number {
@@ -100,16 +111,18 @@ export function ImagePlaceholder({
         />
       ) : null}
 
-      <span
-        className={cn(
-          "absolute right-4 top-4 z-10 inline-flex h-8 min-w-8 items-center justify-center rounded-full border px-2 font-mono text-[0.68rem] font-semibold tracking-[0.08em]",
-          isDark
-            ? "border-white/15 bg-ink-900/65 text-white/80"
-            : "border-ink-900/12 bg-white/75 text-ink-900/70",
-        )}
-      >
-        {number.toString().padStart(2, "0")}
-      </span>
+      {resolvedImageSrc ? null : (
+        <span
+          className={cn(
+            "absolute right-4 top-4 z-10 inline-flex h-8 min-w-8 items-center justify-center rounded-full border px-2 font-mono text-[0.68rem] font-semibold tracking-[0.08em]",
+            isDark
+              ? "border-white/15 bg-ink-900/65 text-white/80"
+              : "border-ink-900/12 bg-white/75 text-ink-900/70",
+          )}
+        >
+          {number.toString().padStart(2, "0")}
+        </span>
+      )}
 
       {chrome ? (
         <div
@@ -173,13 +186,15 @@ export function ImagePlaceholder({
         </p>
       </div>
 
-      <span
-        aria-hidden="true"
-        className={cn(
-          "pointer-events-none absolute inset-2 rounded-xl border border-dashed",
-          isDark ? "border-white/12" : "border-ink-900/12",
-        )}
-      />
+      {resolvedImageSrc ? null : (
+        <span
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-2 rounded-xl border border-dashed",
+            isDark ? "border-white/12" : "border-ink-900/12",
+          )}
+        />
+      )}
     </figure>
   );
 }

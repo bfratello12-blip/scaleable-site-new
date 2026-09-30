@@ -64,8 +64,8 @@ export function HeroConsole() {
           tone="dark"
           label="ScaleAble profit overview — contribution profit plotted against daily ad spend"
           width={1800}
-          height={1100}
-          ratio="~16:10"
+          height={1200}
+          ratio="3:2"
           className="rounded-2xl border-white/8"
         />
       </div>

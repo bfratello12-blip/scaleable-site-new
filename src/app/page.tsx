@@ -292,7 +292,7 @@ export default function HomePage() {
                   Our own Shopify profit analytics
                 </h3>
                 <p className="text-[0.96rem] leading-relaxed text-white/60">
-                  ScaleAble pulls Shopify revenue, real product costs and ad spend into one view, so
+                  ScaleAble pulls Shopify revenue, real product costs, business costs and ad spend into one view, so
                   we can see what a budget change did to contribution profit, product margin, organic
                   and direct revenue — not just what Google and Meta claim credit for.
                 </p>

@@ -103,8 +103,8 @@ export default function SoftwarePage() {
               chrome
               label="ScaleAble dashboard home — profit, ad spend, MER and revenue at a glance"
               width={1800}
-              height={1150}
-              ratio="~16:10"
+              height={1200}
+              ratio="3:2"
               className="relative shadow-glow"
             />
           </div>

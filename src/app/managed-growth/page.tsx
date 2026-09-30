@@ -65,9 +65,9 @@ const placeholderByPillar: Record<string, { label: string; width: number; height
   analytics: {
     kind: "dashboard",
     label: "ScaleAble product profitability view used for budget allocation",
-    width: 1600,
-    height: 1100,
-    ratio: "~16:11",
+    width: 1800,
+    height: 1150,
+    ratio: "~16:10",
   },
 };
 

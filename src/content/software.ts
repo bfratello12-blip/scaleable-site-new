@@ -67,8 +67,8 @@ export const softwareModules: SoftwareModule[] = [
     placeholder: {
       label: "Product Performance table — profit, margin and profit per unit by SKU",
       width: 1800,
-      height: 1200,
-      ratio: "3:2",
+      height: 1150,
+      ratio: "~16:10",
     },
   },
   {
