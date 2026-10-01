@@ -46,7 +46,8 @@ fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
         <>
           <Script id="reddit-pixel" strategy="afterInteractive">
             {`!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=${REDDIT_PIXEL_ID}";t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
-rdt('init','${REDDIT_PIXEL_ID}');rdt('track','PageVisit');`}
+rdt('init','${REDDIT_PIXEL_ID}');
+(function(){function g(){try{if(self.crypto&&self.crypto.randomUUID)return self.crypto.randomUUID()}catch(e){}return 'rdt-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12)}rdt('track','PageVisit',{conversionId:g()})})();`}
           </Script>
           <RedditPageVisits />
           <RedditCtaEvents />

@@ -5,7 +5,7 @@ import { useId, useRef, useState, type FormEvent } from "react";
 import { cn } from "@/lib/cn";
 import { ANALYTICS_EVENTS, pushEvent } from "@/lib/analytics";
 import { AD_SPEND_BANDS, CHANNEL_OPTIONS } from "@/lib/lead";
-import { trackRedditLead } from "@/lib/reddit";
+import { newConversionId, trackRedditLead } from "@/lib/reddit";
 import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -96,6 +96,9 @@ export function LeadForm({
     setFallback(null);
     pushEvent(ANALYTICS_EVENTS.leadFormSubmit, { location });
 
+    // One ID per attempt: a retry is a new attempt and gets a new ID.
+    const conversionId = newConversionId();
+
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -111,7 +114,7 @@ export function LeadForm({
       if (response.ok && data.ok) {
         setStatus("success");
         pushEvent(ANALYTICS_EVENTS.leadFormSuccess, { location });
-        trackRedditLead();
+        trackRedditLead(conversionId);
         return;
       }
 
