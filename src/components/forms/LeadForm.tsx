@@ -1,10 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useId, useState, type FormEvent } from "react";
+import { useId, useRef, useState, type FormEvent } from "react";
 import { cn } from "@/lib/cn";
 import { ANALYTICS_EVENTS, pushEvent } from "@/lib/analytics";
 import { AD_SPEND_BANDS, CHANNEL_OPTIONS } from "@/lib/lead";
+import { trackRedditLead } from "@/lib/reddit";
 import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -46,6 +47,8 @@ export function LeadForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<Status>("idle");
   const [fallback, setFallback] = useState<string | null>(null);
+  // Ref, not `status`: two submits in the same tick would both read a stale "idle".
+  const submitting = useRef(false);
 
   const isDark = tone === "dark";
 
@@ -85,6 +88,9 @@ export function LeadForm({
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting.current) return;
+    submitting.current = true;
+
     setStatus("submitting");
     setErrors({});
     setFallback(null);
@@ -105,6 +111,7 @@ export function LeadForm({
       if (response.ok && data.ok) {
         setStatus("success");
         pushEvent(ANALYTICS_EVENTS.leadFormSuccess, { location });
+        trackRedditLead();
         return;
       }
 
@@ -114,6 +121,8 @@ export function LeadForm({
     } catch {
       setFallback(buildMailto());
       setStatus("error");
+    } finally {
+      submitting.current = false;
     }
   }
 

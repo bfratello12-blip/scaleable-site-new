@@ -17,7 +17,8 @@ npm run dev                  # http://localhost:3000
 | `RESEND_API_KEY` | yes, for the lead form | Server-side only. Without it `/api/lead` returns `503 email_not_configured` and the form falls back to a pre-filled `mailto:` link. |
 | `LEAD_FROM_EMAIL` | no | Verified Resend sender. Defaults to the Resend onboarding sender. |
 | `LEAD_TO_EMAIL` | no | Lead destination. Defaults to `hello@scaleableapp.com`. |
-| `NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_GOOGLE_ADS_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_REDDIT_PIXEL_ID` | no | Tag scripts load only when an ID is present. No JS ships while they are empty. |
+| `NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_GOOGLE_ADS_ID`, `NEXT_PUBLIC_META_PIXEL_ID` | no | Tag scripts load only when an ID is present. No JS ships while they are empty. |
+| `NEXT_PUBLIC_REDDIT_PIXEL_ID` | no | Overrides the Reddit pixel ID. The live ID is the built-in default, so the pixel loads without setting this. |
 
 ## Where to change things
 
