@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { trackRedditPageVisit } from "@/lib/reddit";
+import { forwardInitialPageVisit, trackRedditPageVisit } from "@/lib/reddit";
 
 /**
  * Module scope, not a ref: Strict Mode remounts effects, and a per-mount guard
@@ -21,6 +21,8 @@ export function RedditPageVisits() {
   useEffect(() => {
     if (lastTrackedPath === null) {
       lastTrackedPath = pathname;
+      // Pixel copy already fired inline; send only the matching server copy.
+      forwardInitialPageVisit();
       return;
     }
     if (lastTrackedPath === pathname) return;

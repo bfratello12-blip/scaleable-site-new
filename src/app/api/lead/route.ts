@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
+import { after } from "next/server";
 import { Resend } from "resend";
 import { escapeHtml, validateLead, type LeadPayload } from "@/lib/lead";
+import { clientIpFromHeaders, createRateLimiter } from "@/lib/rate-limit";
+import { clickIdFromCookieHeader, isValidClickId, isValidConversionId, parseScreenDimensions } from "@/lib/reddit";
+import { hashRedditEmail, sendRedditCapiEvent } from "@/lib/reddit-capi";
 import { siteConfig } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -11,18 +15,7 @@ const FROM_EMAIL = process.env.LEAD_FROM_EMAIL?.trim() || "ScaleAble Website <on
 
 // Small in-memory throttle. Enough to stop naive form spam on a single instance;
 // put a WAF or edge rate limiter in front for anything heavier.
-const WINDOW_MS = 10 * 60 * 1000;
-const MAX_PER_WINDOW = 5;
-const hits = new Map<string, number[]>();
-
-function rateLimited(key: string) {
-  const now = Date.now();
-  const recent = (hits.get(key) ?? []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(key, recent);
-  if (hits.size > 5000) hits.clear();
-  return recent.length > MAX_PER_WINDOW;
-}
+const rateLimited = createRateLimiter({ windowMs: 10 * 60 * 1000, max: 5 });
 
 function buildEmail(data: LeadPayload) {
   const rows: [string, string][] = [
@@ -68,8 +61,7 @@ ${rows
 
 export async function POST(request: Request) {
   const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
+    clientIpFromHeaders(request) ||
     "unknown";
 
   if (rateLimited(ip)) {
@@ -129,6 +121,38 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("[lead] Unexpected error sending lead:", err);
     return NextResponse.json({ ok: false, code: "send_failed" }, { status: 502 });
+  }
+
+  // Only reached once the lead itself succeeded. The conversion ID comes from
+  // the browser so this event deduplicates against its pixel counterpart; if the
+  // browser withheld it, no server copy is sent.
+  const rawBody = body as Record<string, unknown>;
+  if (isValidConversionId(rawBody.conversionId)) {
+    const conversionId = rawBody.conversionId;
+    const clickId = isValidClickId(rawBody.clickId)
+      ? rawBody.clickId
+      : clickIdFromCookieHeader(request.headers.get("cookie"));
+    const eventAt = Date.now();
+    const eventSourceUrl = `${siteConfig.url}${result.data.sourcePath}`;
+    const userAgent = request.headers.get("user-agent");
+    const ipAddress = clientIpFromHeaders(request);
+    const screenDimensions = parseScreenDimensions(rawBody.screenWidth, rawBody.screenHeight);
+    // The visitor's own address, hashed here and never logged. Lead events only.
+    const hashedEmail = hashRedditEmail(result.data.email);
+
+    after(async () => {
+      await sendRedditCapiEvent({
+        trackingType: "LEAD",
+        conversionId,
+        eventAt,
+        eventSourceUrl,
+        clickId,
+        userAgent,
+        ipAddress,
+        screenDimensions,
+        hashedEmail,
+      });
+    });
   }
 
   return NextResponse.json({ ok: true });

@@ -5,7 +5,7 @@ import { useId, useRef, useState, type FormEvent } from "react";
 import { cn } from "@/lib/cn";
 import { ANALYTICS_EVENTS, pushEvent } from "@/lib/analytics";
 import { AD_SPEND_BANDS, CHANNEL_OPTIONS } from "@/lib/lead";
-import { newConversionId, trackRedditLead } from "@/lib/reddit";
+import { newConversionId, readRedditClickId, readScreenDimensions, trackRedditLead } from "@/lib/reddit";
 import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -103,7 +103,13 @@ export function LeadForm({
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, sourcePath: pathname }),
+        body: JSON.stringify({
+          ...form,
+          sourcePath: pathname,
+          conversionId,
+          clickId: readRedditClickId() ?? undefined,
+          ...readScreenDimensions(),
+        }),
       });
       const data = (await response.json().catch(() => ({}))) as {
         ok?: boolean;

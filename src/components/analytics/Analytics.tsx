@@ -1,14 +1,11 @@
 import Script from "next/script";
 import { RedditCtaEvents } from "@/components/analytics/RedditCtaEvents";
 import { RedditPageVisits } from "@/components/analytics/RedditPageVisits";
+import { REDDIT_PIXEL_ID } from "@/lib/reddit";
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID?.trim();
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID?.trim();
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
-
-// Reddit ships with its live ID so the pixel works without extra config; the
-// env var still overrides it.
-const REDDIT_PIXEL_ID = process.env.NEXT_PUBLIC_REDDIT_PIXEL_ID?.trim() || "a2_jgph7mt5j91x";
 
 /**
  * Loads tag scripts only when the matching env var is present, so the site
@@ -47,7 +44,7 @@ fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
           <Script id="reddit-pixel" strategy="afterInteractive">
             {`!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=${REDDIT_PIXEL_ID}";t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
 rdt('init','${REDDIT_PIXEL_ID}');
-(function(){function g(){try{if(self.crypto&&self.crypto.randomUUID)return self.crypto.randomUUID()}catch(e){}return 'rdt-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12)}rdt('track','PageVisit',{conversionId:g()})})();`}
+(function(){function g(){try{if(self.crypto&&self.crypto.randomUUID)return self.crypto.randomUUID()}catch(e){}return 'rdt-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12)}var id=g();window.__rdtPageVisitId=id;rdt('track','PageVisit',{conversionId:id})})();`}
           </Script>
           <RedditPageVisits />
           <RedditCtaEvents />
