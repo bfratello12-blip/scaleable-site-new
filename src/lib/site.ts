@@ -12,7 +12,7 @@ export const siteConfig = {
   tagline: "Profit-first paid media for Shopify brands.",
   description:
     "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics — so scaling decisions are made on contribution profit, not platform ROAS.",
-  contactEmail: "brian@scaleableapp.com",
+  contactEmail: "hello@scaleableapp.com",
   softwareSiteUrl: "https://scaleableapp.com",
   shopifyAppUrl: "https://apps.shopify.com/scaleable",
   founder: "Brian Fratello",
@@ -30,21 +30,15 @@ export const managedService = {
 
 /**
  * Every "Book a Call" CTA reads from here.
- * Set NEXT_PUBLIC_BOOK_CALL_URL to the real scheduling link and the whole site updates.
- * Until then CTAs open a pre-addressed email.
+ * NEXT_PUBLIC_BOOK_CALL_URL overrides the default scheduling link site-wide.
  */
+const DEFAULT_BOOK_CALL_URL = "https://calendar.app.google/DipKGPYwU4EP6HK97";
 const bookCallEnv = process.env.NEXT_PUBLIC_BOOK_CALL_URL?.trim();
 
 export const BOOK_CALL_URL =
-  bookCallEnv && bookCallEnv.length > 0
-    ? bookCallEnv
-    : `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(
-        "Book a Call — ScaleAble Managed Growth",
-      )}&body=${encodeURIComponent(
-        "Hi Brian,\n\nI'd like to book a call about ScaleAble managed growth.\n\nStore / Shopify URL:\nCurrent monthly ad spend:\nBest times to talk:\n\nThanks,",
-      )}`;
+  bookCallEnv && bookCallEnv.length > 0 ? bookCallEnv : DEFAULT_BOOK_CALL_URL;
 
-export const BOOK_CALL_IS_EXTERNAL = Boolean(bookCallEnv && bookCallEnv.startsWith("http"));
+export const BOOK_CALL_IS_EXTERNAL = BOOK_CALL_URL.startsWith("http");
 
 export const MAILTO_CONTACT = `mailto:${siteConfig.contactEmail}`;
 
