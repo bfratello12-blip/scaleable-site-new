@@ -15,7 +15,7 @@ import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Pricing — Managed Growth for Shopify Brands",
   description:
-    "ScaleAble managed growth is $2,000 per month: Google Ads and Meta Ads management, creative, CRO, product-level profitability analysis and access to our Shopify profit analytics.",
+    "ScaleAble managed growth is $1,500 per month: Google Ads and Meta Ads management, creative, CRO, product-level profitability analysis and access to our Shopify profit analytics.",
   path: "/pricing",
   keywords: [
     "Shopify ads agency pricing",

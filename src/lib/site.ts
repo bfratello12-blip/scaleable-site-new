@@ -20,8 +20,8 @@ export const siteConfig = {
 
 /** Managed growth retainer. Referenced everywhere pricing appears. */
 export const managedService = {
-  price: 2000,
-  priceFormatted: "$2,000",
+  price: 1500,
+  priceFormatted: "$1,500",
   currency: "USD",
   cadence: "per month",
   cadenceShort: "/mo",

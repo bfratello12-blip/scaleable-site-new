@@ -21,7 +21,7 @@ import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "ScaleAble — Profit-First Paid Media for Shopify Brands",
   description:
-    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics. Scale on contribution profit, not platform ROAS. $2,000/month, everything included.",
+    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics. Scale on contribution profit, not platform ROAS. $1,500/month, everything included.",
   path: "/",
   keywords: [
     "Shopify paid media management",

@@ -2,14 +2,14 @@ export type Faq = { question: string; answer: string };
 
 export const pricingFaqs: Faq[] = [
   {
-    question: "What exactly is included for $2,000 per month?",
+    question: "What exactly is included for $1,500 per month?",
     answer:
       "Google Ads and Meta Ads management, paid media strategy, campaign creation and restructuring, budget allocation and scaling strategy, conversion rate optimisation and landing page recommendations, advertising creative strategy, ad design and creative testing, product-level performance analysis, Shopify profitability analysis, ongoing optimisation, and reporting with strategic recommendations. Access to the ScaleAble software is part of the engagement.",
   },
   {
     question: "Does the price change as our ad spend grows?",
     answer:
-      "The managed growth retainer is $2,000 per month. It is not a percentage of spend, so our incentive is not simply to spend more of your budget.",
+      "The managed growth retainer is $1,500 per month. It is not a percentage of spend, so our incentive is not simply to spend more of your budget.",
   },
   {
     question: "Do we need the ScaleAble software to work with you?",

@@ -27,7 +27,7 @@ const expectations = [
   },
   {
     title: "An honest answer on fit",
-    body: "If you're not on Shopify, or the numbers don't support a $2,000 retainer yet, we'll say so.",
+    body: "If you're not on Shopify, or the numbers don't support a $1,500 retainer yet, we'll say so.",
   },
 ];
 
