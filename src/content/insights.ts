@@ -537,6 +537,421 @@ export const insights: InsightPost[] = [
       { type: "p", text: "That's ultimately the number worth scaling." },
     ],
   },
+
+  {
+    slug: "what-is-a-good-roas-for-ecommerce",
+    title: "What Is a Good ROAS for Ecommerce?",
+    excerpt:
+      "Two stores can both report a 4x ROAS and be in completely different financial positions. Here's how to calculate your break-even ROAS, set a target from your own economics, and know when a lower ROAS is the better decision.",
+    description:
+      "There is no universal good ROAS. How to calculate break-even ROAS, set a target from your margins, and why maximising ROAS can limit profitable growth.",
+    category: "Paid Media",
+    keywords: [
+      "what is a good ROAS",
+      "good ROAS for ecommerce",
+      "break-even ROAS",
+      "target ROAS",
+      "ecommerce ROAS benchmark",
+      "Shopify ROAS",
+      "MER vs ROAS",
+      "TACoS ecommerce",
+    ],
+    publishedAt: "2026-10-01",
+    readingMinutes: 9,
+    author: "Brian Fratello",
+    blocks: [
+      {
+        type: "p",
+        text: "If you're running Google Ads or Meta Ads for an ecommerce business, ROAS is probably one of the first numbers you look at.",
+      },
+      { type: "p", text: "A campaign generates a 2x ROAS. Is that bad?" },
+      { type: "p", text: "Another generates a 4x. Is that good?" },
+      { type: "p", text: "What about 6x?" },
+      {
+        type: "p",
+        text: "The answer is less satisfying than a universal benchmark, but much more useful:",
+      },
+      {
+        type: "callout",
+        body: "A good ROAS is one that produces profitable growth for your specific business.",
+      },
+      {
+        type: "p",
+        text: "For one ecommerce brand, a 3x ROAS can be highly profitable. Another brand could generate a 5x ROAS and still have very little money left after product costs, advertising, discounts, fulfillment, and other variable expenses.",
+      },
+      {
+        type: "p",
+        text: "That's why ecommerce brands shouldn't choose a ROAS target based on an industry benchmark alone.",
+      },
+      {
+        type: "p",
+        text: "You first need to understand **what ROAS actually means for your business.**",
+      },
+
+      { type: "h2", text: "What Is ROAS?" },
+      { type: "p", text: "ROAS stands for **Return on Ad Spend**." },
+      { type: "p", text: "The basic formula is:" },
+      { type: "formula", lines: ["Revenue attributed to advertising ÷ Advertising spend = ROAS"] },
+      {
+        type: "p",
+        text: "For example, if you spend $10,000 on advertising and the platform reports $40,000 in revenue:",
+      },
+      { type: "formula", lines: ["$40,000 ÷ $10,000 = 4x ROAS"] },
+      {
+        type: "p",
+        text: "Another way of looking at it is that you generated $4 in reported revenue for every $1 spent on advertising.",
+      },
+      { type: "p", text: "That's useful." },
+      { type: "p", text: "But there's an important distinction:" },
+      {
+        type: "callout",
+        body: "ROAS measures revenue efficiency. It does not measure profit.",
+      },
+      { type: "p", text: "That difference is where ecommerce brands can get into trouble." },
+
+      { type: "h2", text: "Is a 4x ROAS Good?" },
+      {
+        type: "p",
+        text: "You'll frequently hear numbers like 3x or 4x described as a \"good ROAS.\"",
+      },
+      {
+        type: "p",
+        text: "But without knowing anything about the business, those numbers don't mean very much.",
+      },
+      { type: "p", text: "Consider two Shopify stores." },
+      { type: "h3", text: "Store A" },
+      {
+        type: "ul",
+        items: [
+          "Revenue from an order: **$100**",
+          "Product cost: **$25**",
+          "Advertising cost: **$25**",
+          "ROAS: **4x**",
+        ],
+      },
+      {
+        type: "p",
+        text: "After product cost and advertising, Store A has $50 remaining before other expenses.",
+      },
+      { type: "h3", text: "Store B" },
+      {
+        type: "ul",
+        items: [
+          "Revenue from an order: **$100**",
+          "Product cost: **$65**",
+          "Advertising cost: **$25**",
+          "ROAS: **4x**",
+        ],
+      },
+      { type: "p", text: "Store B has just $10 remaining before other expenses." },
+      { type: "p", text: "Same revenue. Same ad spend. Same **4x ROAS**." },
+      { type: "p", text: "Very different result." },
+      {
+        type: "p",
+        text: "For Store A, 4x could provide plenty of room to operate profitably.",
+      },
+      {
+        type: "p",
+        text: "For Store B, it could be dangerously close to break-even once additional costs are included.",
+      },
+      {
+        type: "p",
+        text: "So asking whether 4x is a good ROAS isn't really the right question.",
+      },
+      { type: "p", text: "The better question is:" },
+      { type: "quote", text: "Is 4x a profitable ROAS for my business?" },
+
+      { type: "h2", text: "What Determines a Good ROAS?" },
+      { type: "p", text: "Your ideal ROAS depends on your underlying economics." },
+      { type: "p", text: "Some of the biggest factors include:" },
+      {
+        type: "ul",
+        items: [
+          "**Gross margin.** A business with high product margins can generally afford to spend a larger percentage of its revenue acquiring customers.",
+          "**Average order value.** Higher-value orders can provide more dollars to work with even when percentage margins are similar.",
+          "**Product costs.** Two stores selling products for the same price can have completely different advertising economics if their costs are different.",
+          "**Discounts.** Heavy discounting can increase conversion rates and revenue while reducing the amount of money actually left from each sale.",
+          "**Shipping and fulfillment.** If you're covering shipping or have significant fulfillment costs, those expenses affect what you can afford to pay for a customer.",
+          "**Returns and refunds.** A high return rate can make advertising look significantly better initially than the final financial result.",
+          "**Repeat purchases.** A business with strong, proven customer retention may be able to tolerate a higher first-order acquisition cost than a business where most customers purchase only once.",
+        ],
+      },
+      {
+        type: "p",
+        text: "All of these factors influence the amount you can afford to spend acquiring a sale.",
+      },
+
+      { type: "h2", text: "Calculate Your Break-Even ROAS" },
+      {
+        type: "p",
+        text: "A much better starting point than an industry benchmark is your **break-even ROAS**.",
+      },
+      {
+        type: "p",
+        text: "This is the point where advertising consumes the available margin from the sale.",
+      },
+      { type: "p", text: "For a simplified example, imagine you sell a product for **$100**." },
+      { type: "p", text: "Your product and other included variable costs are **$60**." },
+      { type: "p", text: "That leaves **$40**." },
+      { type: "p", text: "Your margin before advertising is therefore 40%." },
+      { type: "p", text: "A simplified break-even ROAS calculation is:" },
+      { type: "formula", lines: ["1 ÷ Margin"] },
+      { type: "p", text: "So:" },
+      { type: "formula", lines: ["1 ÷ 0.40 = 2.5x"] },
+      {
+        type: "p",
+        text: "At approximately 2.5x ROAS, you're spending the entire $40 available from that $100 sale on advertising.",
+      },
+      { type: "p", text: "Anything below that would lose money under this simplified model." },
+      { type: "p", text: "But that doesn't mean **2.6x is suddenly a great ROAS.**" },
+      {
+        type: "p",
+        text: "You're technically above break-even, but you're leaving very little contribution profit behind.",
+      },
+      {
+        type: "p",
+        text: "That's why you need both a **break-even ROAS** and a **target ROAS**.",
+      },
+
+      { type: "h2", text: "Break-Even ROAS vs. Target ROAS" },
+      { type: "p", text: "These aren't the same thing." },
+      { type: "p", text: "Your break-even ROAS answers:" },
+      {
+        type: "quote",
+        text: "How low can our advertising efficiency fall before we stop making money?",
+      },
+      { type: "p", text: "Your target ROAS answers:" },
+      {
+        type: "quote",
+        text: "What level of advertising efficiency gives us the profitability we actually want?",
+      },
+      { type: "p", text: "Suppose your break-even ROAS is 2.5x." },
+      {
+        type: "p",
+        text: "You may determine that you want advertising operating at 4x or better because that leaves enough contribution profit to support the rest of the business.",
+      },
+      {
+        type: "p",
+        text: "That target is based on **your economics**, not somebody else's benchmark.",
+      },
+      { type: "p", text: "This is a much better way to manage ecommerce advertising." },
+
+      { type: "h2", text: "Higher ROAS Isn't Always Better" },
+      {
+        type: "p",
+        text: "This sounds counterintuitive, but maximizing ROAS isn't necessarily the goal.",
+      },
+      { type: "p", text: "Imagine two scenarios." },
+      { type: "h3", text: "Scenario 1" },
+      {
+        type: "ul",
+        items: ["Ad Spend: **$10,000**", "Revenue: **$60,000**", "ROAS: **6x**"],
+      },
+      { type: "h3", text: "Scenario 2" },
+      {
+        type: "ul",
+        items: ["Ad Spend: **$30,000**", "Revenue: **$120,000**", "ROAS: **4x**"],
+      },
+      {
+        type: "p",
+        text: "If you're managing entirely toward ROAS, Scenario 1 looks better.",
+      },
+      { type: "p", text: "But Scenario 2 generates twice as much revenue." },
+      {
+        type: "p",
+        text: "Whether that lower 4x ROAS is actually better for the business depends on the additional product costs and other variable expenses associated with those sales.",
+      },
+      {
+        type: "p",
+        text: "If the second scenario produces substantially more contribution profit, accepting the lower ROAS could be the better business decision.",
+      },
+      { type: "p", text: "This is one of the most important concepts in ecommerce advertising:" },
+      {
+        type: "callout",
+        body: "The goal shouldn't be to maximize ROAS. The goal should be to maximize profitable growth.",
+      },
+
+      { type: "h2", text: "Why ROAS Usually Falls as You Scale" },
+      {
+        type: "p",
+        text: "This also explains why obsessing over a very high ROAS can limit growth.",
+      },
+      { type: "p", text: "Advertising platforms tend to find the easiest opportunities first." },
+      {
+        type: "p",
+        text: "At lower budgets, Meta or Google may be able to concentrate spend on customers who are more likely to purchase.",
+      },
+      { type: "p", text: "As you increase your budget, the platform has to find additional customers." },
+      { type: "p", text: "That can mean:" },
+      {
+        type: "ul",
+        items: [
+          "Higher customer acquisition costs",
+          "More competition",
+          "Broader audiences",
+          "Higher frequency",
+          "Lower conversion rates",
+          "Lower incremental ROAS",
+        ],
+      },
+      {
+        type: "p",
+        text: "So a brand spending $500 per day at 6x shouldn't automatically expect to spend $5,000 per day at the same 6x.",
+      },
+      {
+        type: "p",
+        text: "The real question is how far you can scale before the **additional advertising spend stops producing enough additional profit.**",
+      },
+
+      { type: "h2", text: "Platform ROAS Isn't the Whole Business" },
+      { type: "p", text: "There's another problem with relying exclusively on ROAS:" },
+      { type: "callout", body: "Meta and Google only see part of the customer journey." },
+      { type: "p", text: "Imagine someone sees your Meta ad on Monday." },
+      { type: "p", text: "They don't purchase." },
+      {
+        type: "p",
+        text: "On Wednesday, they search for your company on Google, click a Google ad, and place an order.",
+      },
+      {
+        type: "p",
+        text: "Depending on attribution settings, both platforms may claim some level of credit for that customer.",
+      },
+      { type: "p", text: "But Shopify only recorded one purchase." },
+      {
+        type: "p",
+        text: "This is why you can sometimes look at Meta and Google individually and think both are performing incredibly well while the overall growth of the business doesn't seem to match what the platforms are reporting.",
+      },
+      { type: "p", text: "ROAS is still useful." },
+      { type: "p", text: "It just needs context." },
+
+      { type: "h2", text: "Look at MER Alongside ROAS" },
+      {
+        type: "p",
+        text: "One way to get a broader perspective is **Marketing Efficiency Ratio**, or MER.",
+      },
+      { type: "p", text: "The calculation is:" },
+      { type: "formula", lines: ["Total Revenue ÷ Total Advertising Spend = MER"] },
+      {
+        type: "p",
+        text: "Suppose your Shopify store generates **$200,000 in total revenue** and you spend **$40,000 across Google and Meta**.",
+      },
+      { type: "p", text: "Your MER is:" },
+      { type: "formula", lines: ["$200,000 ÷ $40,000 = 5x MER"] },
+      {
+        type: "p",
+        text: "Instead of asking each platform how much revenue it believes it generated, MER looks at the relationship between advertising investment and the total revenue of the business.",
+      },
+      { type: "p", text: "Another way of expressing this relationship is TACoS:" },
+      { type: "formula", lines: ["Advertising Spend ÷ Total Revenue = TACoS"] },
+      { type: "p", text: "In this example:" },
+      { type: "formula", lines: ["$40,000 ÷ $200,000 = 20% TACoS"] },
+      { type: "p", text: "Neither metric replaces ROAS." },
+      { type: "p", text: "They answer different questions." },
+      { type: "p", text: "ROAS helps you evaluate campaigns and platforms." },
+      {
+        type: "p",
+        text: "MER and TACoS help you understand advertising efficiency across the business.",
+      },
+
+      { type: "h2", text: "Organic Revenue Matters More Than You Might Think" },
+      {
+        type: "p",
+        text: "Advertising can also affect sales that aren't ultimately attributed to advertising.",
+      },
+      { type: "p", text: "Customers see ads and later:" },
+      {
+        type: "ul",
+        items: [
+          "Search for your brand",
+          "Return directly to your website",
+          "Sign up for email",
+          "Tell someone else about your company",
+          "Purchase through another channel",
+        ],
+      },
+      {
+        type: "p",
+        text: "That means a growing advertising program can sometimes increase both **paid and non-paid revenue**.",
+      },
+      { type: "p", text: "The opposite can happen too." },
+      {
+        type: "p",
+        text: "Imagine you double your advertising budget, Meta reports excellent results, but total Shopify revenue barely changes.",
+      },
+      { type: "p", text: "That's something worth investigating." },
+      {
+        type: "p",
+        text: "If the business is spending significantly more money but generating very little incremental revenue, the platform ROAS may be giving you an incomplete picture.",
+      },
+
+      { type: "h2", text: "Contribution Profit Gives ROAS Context" },
+      {
+        type: "p",
+        text: "Ultimately, the metric we care about most is how much money the business has left after generating its sales.",
+      },
+      { type: "p", text: "A simplified version is:" },
+      { type: "formula", lines: ["Revenue − Product Costs − Advertising Spend = Contribution Profit"] },
+      { type: "p", text: "Consider this:" },
+      {
+        type: "table",
+        head: ["", "Month 1", "Month 2"],
+        rows: [
+          ["Revenue", "$100,000", "$140,000"],
+          ["Product costs", "$30,000", "$42,000"],
+          ["Ad spend", "$20,000", "$55,000"],
+          ["Contribution profit", "$50,000", "$43,000"],
+        ],
+      },
+      { type: "p", text: "Revenue increased 40%." },
+      { type: "p", text: "But contribution profit **decreased**." },
+      {
+        type: "p",
+        text: "That's something you could easily miss if your primary objective was simply increasing revenue or maintaining an arbitrary ROAS target.",
+      },
+
+      { type: "h2", text: "So, What Is a Good ROAS for Ecommerce?" },
+      { type: "p", text: "There isn't one number that applies to every ecommerce business." },
+      { type: "p", text: "A good ROAS is one that:" },
+      {
+        type: "callout",
+        body: "Covers your product and variable costs, covers your advertising investment, leaves an acceptable contribution margin, and allows the business to grow profitably.",
+      },
+      { type: "p", text: "For one company, that could be 2.5x." },
+      { type: "p", text: "For another, it might need to be 5x." },
+      {
+        type: "p",
+        text: "And as your business scales, the ROAS you're willing to accept may change.",
+      },
+      {
+        type: "p",
+        text: "The important thing is that the target comes from your **actual business economics** rather than an arbitrary industry benchmark.",
+      },
+
+      { type: "h2", text: "Don't Ask \"What's a Good ROAS?\" Ask This Instead" },
+      {
+        type: "p",
+        text: "The next time you're reviewing your Meta or Google Ads account, don't stop at:",
+      },
+      { type: "quote", text: "What's our ROAS?" },
+      { type: "p", text: "Ask:" },
+      {
+        type: "quote",
+        text: "How much additional profit did this advertising create for the business?",
+      },
+      { type: "p", text: "That's the question ROAS alone can't answer." },
+      { type: "p", text: "It's also why we built **ScaleAble**." },
+      {
+        type: "p",
+        text: "ScaleAble combines your actual Shopify revenue and product costs with advertising spend from Google and Meta to show what happens beyond platform attribution.",
+      },
+      {
+        type: "p",
+        text: "Instead of evaluating advertising from inside each ad platform, you can see how ad spend relates to total revenue, paid vs. non-paid sales, contribution profit, contribution margin, and the overall economics of the business.",
+      },
+      { type: "p", text: "Because ultimately, a \"good\" ROAS isn't 3x, 4x, or 5x." },
+      { type: "callout", body: "It's the ROAS that allows your business to grow profitably." },
+    ],
+  },
 ];
 
 export function getInsight(slug: string) {
