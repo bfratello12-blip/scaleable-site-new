@@ -8,6 +8,7 @@ type PageMetaInput = {
   path: string;
   keywords?: string[];
   ogImage?: string;
+  ogType?: "website" | "article";
 };
 
 export function pageMetadata({
@@ -16,6 +17,7 @@ export function pageMetadata({
   path,
   keywords,
   ogImage = "/og.png",
+  ogType = "website",
 }: PageMetaInput): Metadata {
   const url = `${siteConfig.url}${path === "/" ? "" : path}`;
 
@@ -25,7 +27,7 @@ export function pageMetadata({
     keywords,
     alternates: { canonical: url },
     openGraph: {
-      type: "website",
+      type: ogType,
       url,
       siteName: siteConfig.name,
       title,
@@ -98,5 +100,40 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
+  };
+}
+
+export function articleSchema({
+  title,
+  description,
+  path,
+  publishedAt,
+  updatedAt,
+  author,
+  keywords,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  publishedAt: string;
+  updatedAt?: string;
+  author: string;
+  keywords?: string[];
+}) {
+  const url = `${siteConfig.url}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: title,
+    description,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: publishedAt,
+    dateModified: updatedAt ?? publishedAt,
+    author: { "@type": "Person", name: author },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+    image: `${siteConfig.url}/og.png`,
+    ...(keywords?.length ? { keywords: keywords.join(", ") } : {}),
   };
 }

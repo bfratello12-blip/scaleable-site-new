@@ -66,6 +66,11 @@ export const primaryNav: NavItem[] = [
   },
   { label: "Pricing", href: "/pricing", description: "One retainer. Everything included." },
   { label: "Approach", href: "/approach", description: "How we think about scaling profitably." },
+  {
+    label: "Insights",
+    href: "/insights",
+    description: "Guides on ecommerce advertising profitability.",
+  },
 ];
 
 export const footerNav: { title: string; links: NavItem[] }[] = [
@@ -94,6 +99,7 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
     links: [
       { label: "Our Approach", href: "/approach" },
       { label: "Client Results", href: "/results" },
+      { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },
       { label: "Book a Call", href: BOOK_CALL_URL },
     ],
