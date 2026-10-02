@@ -89,7 +89,9 @@ export function SiteHeader() {
               size="sm"
               {...tracked(ANALYTICS_EVENTS.contactCta, "header")}
             >
-              Get a plan
+              {/* Shortened below xl so the full label never crowds the nav. */}
+              <span className="xl:hidden">Free Profit Analysis</span>
+              <span className="hidden xl:inline">Get My Free Profit Analysis</span>
             </Button>
             <Button
               href={BOOK_CALL_URL}
@@ -102,30 +104,42 @@ export function SiteHeader() {
             </Button>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white lg:hidden"
-          >
-            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-            <span aria-hidden="true" className="relative block h-3 w-5">
-              <span
-                className={cn(
-                  "absolute left-0 block h-[1.5px] w-5 bg-white transition-transform duration-300",
-                  open ? "top-1.5 rotate-45" : "top-0",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute left-0 block h-[1.5px] w-5 bg-white transition-transform duration-300",
-                  open ? "top-1.5 -rotate-45" : "top-3",
-                )}
-              />
-            </span>
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <Button
+              href="/contact"
+              variant="primary"
+              size="sm"
+              className="h-10 whitespace-nowrap px-4 text-[0.8rem]"
+              {...tracked(ANALYTICS_EVENTS.contactCta, "mobile_header")}
+            >
+              Free Analysis
+            </Button>
+
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="relative z-50 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-white"
+            >
+              <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+              <span aria-hidden="true" className="relative block h-3 w-5">
+                <span
+                  className={cn(
+                    "absolute left-0 block h-[1.5px] w-5 bg-white transition-transform duration-300",
+                    open ? "top-1.5 rotate-45" : "top-0",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute left-0 block h-[1.5px] w-5 bg-white transition-transform duration-300",
+                    open ? "top-1.5 -rotate-45" : "top-3",
+                  )}
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -167,7 +181,18 @@ export function SiteHeader() {
 
           <div className="flex flex-col gap-3 pb-6">
             <Button
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full"
+              trailingIcon
+              {...tracked(ANALYTICS_EVENTS.contactCta, "mobile_nav")}
+            >
+              Get My Free Profit Analysis
+            </Button>
+            <Button
               href={BOOK_CALL_URL}
+              variant="light"
               size="lg"
               className="w-full"
               trailingIcon
