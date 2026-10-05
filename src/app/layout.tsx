@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/analytics/Analytics";
+import { ChromeGate } from "@/components/layout/ChromeGate";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { JsonLd, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -66,9 +67,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${interTight.variable}`}>
       <body className="min-h-dvh bg-white antialiased">
-        <SiteHeader />
+        <ChromeGate>
+          <SiteHeader />
+        </ChromeGate>
         <main id="main">{children}</main>
-        <SiteFooter />
+        <ChromeGate>
+          <SiteFooter />
+        </ChromeGate>
         <JsonLd data={[organizationSchema, websiteSchema]} />
         <Analytics />
       </body>

@@ -42,6 +42,18 @@ export const BOOK_CALL_IS_EXTERNAL = BOOK_CALL_URL.startsWith("http");
 
 export const MAILTO_CONTACT = `mailto:${siteConfig.contactEmail}`;
 
+/**
+ * Standalone landing routes. They render without the shared header and footer
+ * because every extra link on a paid-traffic page is a way out of the funnel.
+ */
+export const BARE_ROUTE_PREFIXES = ["/lp"] as const;
+
+export function isBareRoute(pathname: string) {
+  return BARE_ROUTE_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
+}
+
 export type NavItem = {
   label: string;
   href: string;

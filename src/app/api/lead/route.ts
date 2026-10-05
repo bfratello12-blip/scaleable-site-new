@@ -27,6 +27,9 @@ function buildEmail(data: LeadPayload) {
     ["Submitted from", `${siteConfig.url}${data.sourcePath}`],
   ];
 
+  // Optional on landing routes, so it can legitimately arrive empty.
+  const message = data.message || "— (not provided)";
+
   const html = `<!doctype html><html><body style="margin:0;background:#f1f5fb;padding:28px;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;color:#0b1120">
 <div style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #e5ecf7;border-radius:14px;overflow:hidden">
 <div style="background:#0b1120;padding:22px 26px">
@@ -45,7 +48,7 @@ ${rows
 </table>
 <div style="padding:20px 26px;border-top:1px solid #e5ecf7">
   <p style="margin:0 0 8px;font-size:12px;color:#4d4d4d">Message</p>
-  <p style="margin:0;font-size:14px;line-height:1.65;white-space:pre-wrap">${escapeHtml(data.message)}</p>
+  <p style="margin:0;font-size:14px;line-height:1.65;white-space:pre-wrap">${escapeHtml(message)}</p>
 </div>
 </div></body></html>`;
 
@@ -53,7 +56,7 @@ ${rows
     ...rows.map(([label, value]) => `${label}: ${value}`),
     "",
     "Message:",
-    data.message,
+    message,
   ].join("\n");
 
   return { html, text };

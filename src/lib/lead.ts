@@ -1,3 +1,5 @@
+import { isBareRoute } from "@/lib/site";
+
 export const AD_SPEND_BANDS = [
   "Under $10k / month",
   "$10k – $25k / month",
@@ -60,7 +62,11 @@ export function validateLead(input: unknown): ValidationResult {
   if (!(AD_SPEND_BANDS as readonly string[]).includes(adSpend)) {
     errors.adSpend = "Please select your current monthly ad spend.";
   }
-  if (message.length < 10) errors.message = "A sentence or two is enough — tell us what you need.";
+  // Landing routes trade the message for a lower-friction submit; everywhere
+  // else it is the field that makes the first reply useful.
+  if (!isBareRoute(sourcePath) && message.length < 10) {
+    errors.message = "A sentence or two is enough — tell us what you need.";
+  }
 
   if (Object.keys(errors).length > 0) return { ok: false, errors };
 

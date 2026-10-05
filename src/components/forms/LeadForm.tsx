@@ -35,11 +35,26 @@ export function LeadForm({
   compact = false,
   className,
   location = "contact_page",
+  submitLabel = "Send enquiry",
+  messageLabel = "What are you trying to fix?",
+  messagePlaceholder = "Spend is growing but profit isn't. We're running Shopping and Meta, and we can't tell which products are actually worth pushing.",
+  messageRequired = true,
+  successTitle = "Got it — thank you.",
+  successBody = "We read every enquiry personally and reply within one business day.",
+  footnote,
 }: {
   tone?: "light" | "dark";
   compact?: boolean;
   className?: string;
   location?: string;
+  submitLabel?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  /** Landing pages drop it to reduce friction. Server validation matches by source path. */
+  messageRequired?: boolean;
+  successTitle?: string;
+  successBody?: string;
+  footnote?: string;
 }) {
   const pathname = usePathname();
   const uid = useId();
@@ -150,9 +165,9 @@ export function LeadForm({
             <path d="m4 10.5 4 4 8-9" />
           </svg>
         </span>
-        <h3 className={cn("text-2xl", isDark ? "text-white" : "text-ink-900")}>Got it — thank you.</h3>
+        <h3 className={cn("text-2xl", isDark ? "text-white" : "text-ink-900")}>{successTitle}</h3>
         <p className={cn("max-w-md text-[0.95rem] leading-relaxed", isDark ? "text-white/60" : "text-ink-900/65")}>
-          We read every enquiry personally and reply within one business day. If it is urgent, email{" "}
+          {successBody} If it is urgent, email{" "}
           <a className="underline underline-offset-4" href={`mailto:${siteConfig.contactEmail}`}>
             {siteConfig.contactEmail}
           </a>
@@ -329,19 +344,24 @@ export function LeadForm({
 
         <div className={compact ? "" : "sm:col-span-2"}>
           <label className={labelBase} htmlFor={`${uid}-message`}>
-            What are you trying to fix?
+            {messageLabel}
+            {messageRequired ? null : (
+              <span className={cn("ml-2 normal-case tracking-normal", isDark ? "text-white/35" : "text-ink-900/35")}>
+                Optional
+              </span>
+            )}
           </label>
           <textarea
             id={`${uid}-message`}
             name="message"
-            required
+            required={messageRequired}
             rows={4}
             value={form.message}
             onChange={(e) => set("message", e.target.value)}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? `${uid}-message-error` : undefined}
             className={cn(fieldBase, "resize-y py-3")}
-            placeholder="Spend is growing but profit isn't. We're running Shopping and Meta, and we can't tell which products are actually worth pushing."
+            placeholder={messagePlaceholder}
           />
           {errorText("message")}
         </div>
@@ -366,7 +386,7 @@ export function LeadForm({
           disabled={status === "submitting"}
           className="group inline-flex h-13 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand-700 px-7 text-[0.95rem] font-medium text-white shadow-[0_12px_34px_-14px_rgba(7,75,191,0.9)] transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-brand-600 disabled:translate-y-0 disabled:opacity-65"
         >
-          {status === "submitting" ? "Sending…" : "Send enquiry"}
+          {status === "submitting" ? "Sending…" : submitLabel}
           <svg
             aria-hidden="true"
             viewBox="0 0 16 16"
@@ -382,7 +402,7 @@ export function LeadForm({
         </button>
 
         <p className={cn("text-[0.78rem] leading-relaxed", isDark ? "text-white/45" : "text-ink-900/50")}>
-          Goes straight to {siteConfig.contactEmail}. No sequences, no sales floor.
+          {footnote ?? `Goes straight to ${siteConfig.contactEmail}. No sequences, no sales floor.`}
         </p>
       </div>
 
