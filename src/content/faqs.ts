@@ -14,7 +14,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: "Do we need the ScaleAble software to work with you?",
     answer:
-      "Yes — it is how we measure. ScaleAble connects your Shopify data, real product costs and ad platform spend so we can manage against contribution profit rather than platform-reported ROAS. Installing it is the first step of onboarding.",
+      "Yes — it is how we measure. ScaleAble connects your Shopify data, real product costs and ad platform spend so we can manage against profit rather than platform-reported ROAS. Installing it is the first step of onboarding.",
   },
   {
     question: "Can we use the software without managed services?",
@@ -37,7 +37,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "How is this different from a normal PPC agency?",
     answer:
-      "A typical agency reports the numbers inside Google Ads and Meta Ads. We build and manage campaigns against contribution profit inside your Shopify business, using our own analytics software to see how spend affects product profitability, organic and direct revenue, and overall margin.",
+      "A typical agency reports the numbers inside Google Ads and Meta Ads. We build and manage campaigns against profit inside your Shopify business, using our own analytics software to see how spend affects product profitability, organic and direct revenue, and overall margin.",
   },
   {
     question: "Why do you focus on profit rather than ROAS?",
@@ -57,7 +57,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "How do you report?",
     answer:
-      "Reporting runs on the same ScaleAble views we work from: contribution profit, contribution margin, blended MER against platform ROAS, product-level profitability, and event markers for every material change we make.",
+      "Reporting runs on the same ScaleAble views we work from: profit, contribution margin, blended MER against platform ROAS, product-level profitability, and event markers for every material change we make.",
   },
 ];
 
@@ -68,7 +68,7 @@ export const softwareFaqs: Faq[] = [
       "Shopify for orders, revenue, products and channel data; Google Ads and Meta Ads for spend and performance; and the product and business costs you define — COGS, shipping, fulfilment, processing fees, packaging and custom expenses.",
   },
   {
-    question: "What is contribution profit?",
+    question: "What is profit?",
     answer:
       "Revenue minus the variable costs of producing and delivering the order — product cost, shipping, fulfilment, payment processing and packaging — before fixed overhead. It is the number that tells you whether an additional order was actually worth having.",
   },

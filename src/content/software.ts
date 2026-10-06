@@ -21,15 +21,15 @@ export const softwareModules: SoftwareModule[] = [
     id: "profit-vs-spend",
     eyebrow: "Profit vs. ad spend",
     title: "Watch what happens to profit as spend goes up",
-    body: "The single view that changes how brands scale. Ad spend and contribution profit plotted together, so the point where additional spend stops producing additional profit is visible instead of theoretical.",
+    body: "The single view that changes how brands scale. Ad spend and profit plotted together, so the point where additional spend stops producing additional profit is visible instead of theoretical.",
     bullets: [
-      "Contribution profit charted against daily and monthly ad spend",
+      "Profit charted against daily and monthly ad spend",
       "Spot the spend level where margin starts to compress",
       "Compare periods before and after a budget change",
       "See profit per additional dollar of spend, not just ROAS",
     ],
     placeholder: {
-      label: "ScaleAble Profit vs. Ad Spend dashboard — trended contribution profit over ad spend",
+      label: "ScaleAble Profit vs. Ad Spend dashboard — trended profit over ad spend",
       width: 1800,
       height: 1100,
       ratio: "~16:10",
@@ -57,7 +57,7 @@ export const softwareModules: SoftwareModule[] = [
     id: "product-profit",
     eyebrow: "Product profitability",
     title: "Which products are actually worth scaling",
-    body: "Store-level reporting hides the problem. ScaleAble applies real per-product costs so you can see revenue, contribution profit, margin and profit per unit at the SKU level — the list that decides where budget goes.",
+    body: "Store-level reporting hides the problem. ScaleAble applies real per-product costs so you can see revenue, profit, margin and profit per unit at the SKU level — the list that decides where budget goes.",
     bullets: [
       "Revenue, profit, margin and profit per unit by product",
       "True cost per product after COGS, shipping, fulfilment and fees",
@@ -117,7 +117,7 @@ export const softwareDataPoints: { label: string; body: string }[] = [
 ];
 
 export const softwareOutputs: { metric: string; body: string }[] = [
-  { metric: "Contribution profit", body: "Revenue after product and variable costs — the number worth scaling." },
+  { metric: "Profit", body: "Revenue after product and variable costs — the number worth scaling." },
   { metric: "Contribution margin", body: "Where margin sits today and how it moves as spend changes." },
   { metric: "MER / True ROAS", body: "Total revenue over total spend, independent of platform attribution." },
   { metric: "Product profitability", body: "Profit, margin and profit per unit for every SKU." },

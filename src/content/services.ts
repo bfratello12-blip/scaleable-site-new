@@ -68,7 +68,7 @@ export const servicePillars: ServicePillar[] = [
     lede: "ScaleAble is wired into your Shopify data, costs and ad platforms — so we can see whether a change made the business money, not just the ad account.",
     points: [
       "COGS, shipping, fulfilment and fee modelling",
-      "Contribution profit and contribution margin tracking",
+      "Profit and contribution margin tracking",
       "Blended MER / True ROAS against platform ROAS",
       "Product-level profitability and scaling shortlists",
       "Paid, organic and direct channel interaction",
@@ -131,7 +131,7 @@ export const engagementProcess: ProcessStep[] = [
   {
     step: "02",
     title: "Model your real costs",
-    body: "COGS, shipping, fulfilment, processing fees, packaging and custom business expenses go in. That turns reported revenue into contribution profit at the product level.",
+    body: "COGS, shipping, fulfilment, processing fees, packaging and custom business expenses go in. That turns reported revenue into profit at the product level.",
     detail: ["COGS & variable costs", "Custom expenses", "Contribution margin baseline"],
   },
   {

@@ -127,7 +127,7 @@ export default async function InsightPage({ params }: Params) {
                   See these numbers for your own store.
                 </h2>
                 <p className="text-[0.95rem] leading-relaxed text-ink-900/65">
-                  ScaleAble connects Shopify, Google Ads and Meta Ads into one contribution profit
+                  ScaleAble connects Shopify, Google Ads and Meta Ads into one profit
                   view — the calculations in this guide, maintained automatically.
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row">

@@ -18,7 +18,7 @@ export const siteConfig = {
   url: rawSiteUrl && rawSiteUrl.length > 0 ? rawSiteUrl.replace(/\/$/, "") : DEFAULT_SITE_URL,
   tagline: "Profit-first paid media for Shopify brands.",
   description:
-    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics — so scaling decisions are made on contribution profit, not platform ROAS.",
+    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics — so scaling decisions are made on profit, not platform ROAS.",
   contactEmail: "hello@scaleableapp.com",
   softwareSiteUrl: "https://scaleableapp.com",
   shopifyAppUrl: "https://apps.shopify.com/scaleable",

@@ -13,7 +13,7 @@ import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Our Approach — Profit-First Ecommerce Growth",
   description:
-    "How ScaleAble thinks about scaling Shopify brands: contribution profit over platform ROAS, product-level margin over blended averages, and evidence over attribution arguments.",
+    "How ScaleAble thinks about scaling Shopify brands: profit over platform ROAS, product-level margin over blended averages, and evidence over attribution arguments.",
   path: "/approach",
   keywords: [
     "ecommerce growth agency approach",
@@ -27,7 +27,7 @@ const principles = [
   {
     number: "01",
     title: "Profit is the only metric that survives contact with reality",
-    body: "Revenue, ROAS, CPA and attributed conversions are all useful diagnostics and terrible objectives. Contribution profit is the number that decides whether the business is better off than it was last month.",
+    body: "Revenue, ROAS, CPA and attributed conversions are all useful diagnostics and terrible objectives. Profit is the number that decides whether the business is better off than it was last month.",
   },
   {
     number: "02",
@@ -110,7 +110,7 @@ export default function ApproachPage() {
                 </p>
                 <p>
                   We built ScaleAble to close that gap — Shopify revenue, real product costs and ad
-                  spend from Google and Meta in a single model, producing contribution profit and
+                  spend from Google and Meta in a single model, producing profit and
                   contribution margin instead of a platform-flattering return figure.
                 </p>
                 <p>

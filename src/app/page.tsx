@@ -21,7 +21,7 @@ import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "ScaleAble — Profit-First Paid Media for Shopify Brands",
   description:
-    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics. Scale on contribution profit, not platform ROAS. $1,500/month, everything included.",
+    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics. Scale on profit, not platform ROAS. $1,500/month, everything included.",
   path: "/",
   keywords: [
     "Shopify paid media management",
@@ -37,7 +37,7 @@ export const metadata: Metadata = pageMetadata({
 const marqueeItems = [
   "Google Ads",
   "Meta Ads",
-  "Contribution profit",
+  "Profit",
   "Product-level margin",
   "Blended MER",
   "Creative testing",
@@ -101,17 +101,15 @@ export default function HomePage() {
 
               <Reveal delay={60}>
                 <h1 className="text-[clamp(2.4rem,1.3rem+4vw,4.6rem)] leading-[0.98] text-white">
-                  Revenue is easy to grow.
-                  <br />
-                  <span className="text-gradient-brand">Profit is harder.</span>
+                  We scale <span className="text-gradient-brand">profit</span>, not just revenue.
                 </h1>
               </Reveal>
 
               <Reveal delay={120}>
                 <p className="max-w-xl text-[1.08rem] leading-relaxed text-white/68 sm:text-[1.15rem]">
-                  We manage Google Ads and Meta Ads for Shopify brands — and we measure every decision
-                  inside our own Shopify analytics platform, against contribution profit rather than
-                  the numbers the ad platforms report about themselves.
+                  We manage Google Ads and Meta Ads for Shopify brands, using our own profit
+                  analytics platform to make every decision based on scaling profit — not
+                  platform-reported ROAS.
                 </p>
               </Reveal>
 
@@ -141,7 +139,7 @@ export default function HomePage() {
                   {[
                     { label: "Managed growth", value: `${managedService.priceFormatted} / month` },
                     { label: "Platforms", value: "Google Ads + Meta Ads" },
-                    { label: "Measured in", value: "Contribution profit" },
+                    { label: "Measured in", value: "Profit" },
                   ].map((item) => (
                     <div key={item.label} className="flex flex-col gap-1">
                       <dt className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-white/35">
@@ -221,7 +219,7 @@ export default function HomePage() {
                     What that looks like
                   </p>
                   <h3 className="mt-3 max-w-sm text-[1.35rem] leading-snug text-white">
-                    Platform ROAS holds steady. Contribution profit quietly walks out the door.
+                    Platform ROAS holds steady. Profit quietly walks out the door.
                   </h3>
                   <DivergenceChart className="mt-6" />
                   <p className="mt-5 border-t border-white/10 pt-5 text-[0.78rem] leading-relaxed text-white/40">
@@ -293,11 +291,11 @@ export default function HomePage() {
                 </h3>
                 <p className="text-[0.96rem] leading-relaxed text-white/60">
                   ScaleAble pulls Shopify revenue, real product costs, business costs and ad spend into one view, so
-                  we can see what a budget change did to contribution profit, product margin, organic
+                  we can see what a budget change did to profit, product margin, organic
                   and direct revenue — not just what Google and Meta claim credit for.
                 </p>
                 <ul className="mt-auto flex flex-col gap-2.5 pt-4">
-                  {["Contribution profit & margin", "Blended MER vs. platform ROAS", "Product-level profitability"].map(
+                  {["Profit & margin", "Blended MER vs. platform ROAS", "Product-level profitability"].map(
                     (item) => (
                       <li key={item} className="flex items-center gap-3 text-[0.88rem] text-white/70">
                         <span aria-hidden="true" className="h-px w-5 bg-brand-400/70" />
@@ -422,7 +420,7 @@ export default function HomePage() {
                     tone="dark"
                     chrome
                     chromeLabel="app.scaleableapp.com / product-performance"
-                    label="Product profitability view — revenue, contribution profit, margin and profit per unit by SKU"
+                    label="Product profitability view — revenue, profit, margin and profit per unit by SKU"
                     width={1800}
                     height={1150}
                     ratio="~16:10"

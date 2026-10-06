@@ -1,7 +1,7 @@
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 const chips = [
-  { label: "Contribution Profit", value: "$43,890", delta: "+55.9%", positive: true },
+  { label: "Profit", value: "$43,890", delta: "+55.9%", positive: true },
   { label: "Blended MER", value: "5.75x", delta: "+24.7%", positive: true },
   { label: "Platform ROAS", value: "5.11x", delta: "+20.3%", positive: true },
 ];
@@ -62,7 +62,7 @@ export function HeroConsole() {
           imageSrc="/brand/_scaleable_profit_dashboard_main_01.png"
           kind="dashboard"
           tone="dark"
-          label="ScaleAble profit overview — contribution profit plotted against daily ad spend"
+          label="ScaleAble profit overview — profit plotted against daily ad spend"
           width={1800}
           height={1200}
           ratio="3:2"

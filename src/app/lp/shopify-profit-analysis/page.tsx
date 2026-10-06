@@ -29,14 +29,14 @@ export const metadata: Metadata = {
   ...pageMetadata({
     title: "Free Profit Analysis for Shopify Brands Running Meta & Google Ads",
     description:
-      "Good ROAS and growing revenue don't mean growing profit. We'll show you what your Meta and Google spend is actually doing to contribution profit — free, for Shopify brands.",
+      "Good ROAS and growing revenue don't mean growing profit. We'll show you what your Meta and Google spend is actually doing to profit — free, for Shopify brands.",
     path: "/lp/shopify-profit-analysis",
   }),
   robots: { index: false, follow: false },
 };
 
 const marqueeItems = [
-  "Contribution profit",
+  "Profit",
   "Blended MER",
   "Product-level margin",
   "COGS & shipping",
@@ -67,12 +67,12 @@ const deliverables = [
     id: "profit-vs-spend",
     eyebrow: "01 — Profit vs. ad spend",
     title: "What each extra dollar of spend is actually earning",
-    body: "Contribution profit plotted against your daily and monthly ad spend, so the point where more budget stops producing more profit is visible instead of theoretical.",
+    body: "Profit plotted against your daily and monthly ad spend, so the point where more budget stops producing more profit is visible instead of theoretical.",
     bullets: [
       "The spend level where margin starts to compress",
       "Your last budget increase, measured on profit",
     ],
-    image: { number: 12, label: "Contribution profit charted against daily ad spend", width: 1800, height: 1100, ratio: "~16:10" },
+    image: { number: 12, label: "Profit charted against daily ad spend", width: 1800, height: 1100, ratio: "~16:10" },
   },
   {
     id: "true-roas",
@@ -89,7 +89,7 @@ const deliverables = [
     id: "product-profit",
     eyebrow: "03 — Product profitability",
     title: "Which products are worth scaling, and which are funded losses",
-    body: "Real per-product costs applied to revenue, so you see contribution profit, margin and profit per unit at SKU level — the list that should be deciding where budget goes.",
+    body: "Real per-product costs applied to revenue, so you see profit, margin and profit per unit at SKU level — the list that should be deciding where budget goes.",
     bullets: [
       "Hero products that are unprofitable once costs land",
       "The SKUs your Shopping and catalog budget should follow",
@@ -123,12 +123,12 @@ const steps = [
   {
     step: "03",
     title: "You get the analysis",
-    body: "Contribution profit by product and channel, where spend is making money, where it isn't, and the first three changes we'd make. Yours to keep, with no obligation to hire us.",
+    body: "Profit by product and channel, where spend is making money, where it isn't, and the first three changes we'd make. Yours to keep, with no obligation to hire us.",
   },
 ];
 
 const returns = [
-  "Contribution profit and margin for the period we review",
+  "Profit and margin for the period we review",
   "Blended MER against the ROAS your platforms report",
   "Your most and least profitable products after real costs",
   "Where we'd move budget first, and what we'd expect it to do",
@@ -147,7 +147,7 @@ const faqs: Faq[] = [
   {
     question: "How is this different from a normal PPC agency audit?",
     answer:
-      "A typical audit reports the numbers already inside Google Ads and Meta Ads. We build the analysis on contribution profit inside your Shopify business — how spend affects product profitability, organic and direct revenue, and overall margin.",
+      "A typical audit reports the numbers already inside Google Ads and Meta Ads. We build the analysis on profit inside your Shopify business — how spend affects product profitability, organic and direct revenue, and overall margin.",
   },
   {
     question: "Why do you focus on profit rather than ROAS?",
@@ -192,7 +192,7 @@ export default function RedditProfitAnalysisPage() {
               <Reveal delay={120}>
                 <p className="max-w-xl text-[1.08rem] leading-relaxed text-white/68 sm:text-[1.15rem]">
                   Google and Meta report the performance they can attribute to themselves. ScaleAble
-                  shows whether that ad spend is actually increasing contribution profit — after COGS,
+                  shows whether that ad spend is actually increasing profit — after COGS,
                   shipping, fulfilment and fees. We&apos;ll run that analysis on your store, free.
                 </p>
               </Reveal>
@@ -238,7 +238,7 @@ export default function RedditProfitAnalysisPage() {
                       label: "Managed growth",
                       value: `${managedService.priceFormatted} / month`,
                     },
-                    { label: "Measured in", value: "Contribution profit" },
+                    { label: "Measured in", value: "Profit" },
                   ].map((item) => (
                     <div key={item.label} className="flex flex-col gap-1">
                       <dt className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-white/35">
@@ -316,7 +316,7 @@ export default function RedditProfitAnalysisPage() {
                     What that looks like
                   </p>
                   <h3 className="mt-3 max-w-sm text-[1.35rem] leading-snug text-white">
-                    Platform ROAS holds steady. Contribution profit quietly walks out the door.
+                    Platform ROAS holds steady. Profit quietly walks out the door.
                   </h3>
                   <DivergenceChart className="mt-6" />
                   <p className="mt-5 border-t border-white/10 pt-5 text-[0.78rem] leading-relaxed text-white/40">
@@ -454,7 +454,7 @@ export default function RedditProfitAnalysisPage() {
                   },
                   {
                     label: "Never a % of spend",
-                    body: "Our incentive is your contribution profit, not your budget.",
+                    body: "Our incentive is your profit, not your budget.",
                   },
                 ].map((item) => (
                   <div

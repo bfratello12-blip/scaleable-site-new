@@ -14,8 +14,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-6">
             <Logo tone="onDark" height={36} />
             <p className="max-w-sm text-[0.95rem] leading-relaxed text-white/60">
-              Paid search and paid social managed for Shopify brands — measured against contribution
-              profit inside our own analytics platform, not platform-reported ROAS.
+              Paid search and paid social managed for Shopify brands — measured against profit inside our own analytics platform, not platform-reported ROAS.
             </p>
             <div className="flex flex-col gap-1.5 text-sm">
               <a

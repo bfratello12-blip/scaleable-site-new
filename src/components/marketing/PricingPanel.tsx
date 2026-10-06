@@ -59,7 +59,7 @@ export function ManagedPricingCard({
 
           <p className="max-w-sm text-[0.98rem] leading-relaxed text-white/65">
             One team running paid search, paid social, creative and conversion work for your Shopify
-            store — measured against contribution profit in the ScaleAble platform.
+            store — measured against profit in the ScaleAble platform.
           </p>
 
           <div className="flex flex-col gap-3">
@@ -136,7 +136,7 @@ export function SoftwareAccessCard({
 
       <p className="max-w-xl text-[0.98rem] leading-relaxed text-ink-900/65">
         ScaleAble is a Shopify app. Install it, load your real costs, connect Google Ads and Meta Ads,
-        and you get contribution profit, blended MER and product-level profitability on your own.
+        and you get profit, blended MER and product-level profitability on your own.
         Plans and current pricing live on the app site.
       </p>
 

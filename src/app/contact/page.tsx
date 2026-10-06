@@ -125,7 +125,7 @@ export default function ContactPage() {
                   </h2>
                   <p className="text-[0.9rem] leading-relaxed text-ink-900/62">
                     ScaleAble is on the Shopify App Store. Install it, add your costs, and see your
-                    contribution profit without talking to anyone.
+                    profit without talking to anyone.
                   </p>
                   <Button
                     href={siteConfig.shopifyAppUrl}

@@ -72,7 +72,7 @@ export function GET() {
           </div>
           <div style={{ fontSize: 30, color: "rgba(255,255,255,0.66)", maxWidth: 880, display: "flex" }}>
             Google Ads and Meta Ads managed for Shopify brands — measured against real
-            contribution profit, not platform ROAS.
+            profit, not platform ROAS.
           </div>
         </div>
 

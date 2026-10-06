@@ -14,7 +14,7 @@ import { BOOK_CALL_URL } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Client Success Stories — Shopify Growth Case Studies",
   description:
-    "How Shopify brands changed the way they scale paid media: the problem, what ScaleAble changed, and what happened to contribution profit, margin and blended MER afterwards.",
+    "How Shopify brands changed the way they scale paid media: the problem, what ScaleAble changed, and what happened to profit, margin and blended MER afterwards.",
   path: "/results",
   keywords: [
     "Shopify case studies",
@@ -26,7 +26,7 @@ export const metadata: Metadata = pageMetadata({
 
 const measurementStandards = [
   {
-    title: "Contribution profit, not attributed revenue",
+    title: "Profit, not attributed revenue",
     body: "Every result is stated in terms of profit after product and variable costs, measured in ScaleAble against the store's own Shopify data.",
   },
   {
@@ -74,7 +74,7 @@ export default function ResultsPage() {
         meta={[
           { label: "Platform", value: "Shopify" },
           { label: "Channels", value: "Google Ads + Meta Ads" },
-          { label: "Measured in", value: "Contribution profit" },
+          { label: "Measured in", value: "Profit" },
         ]}
       />
 

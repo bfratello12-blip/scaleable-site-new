@@ -14,7 +14,7 @@ import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Managed Growth — Shopify Paid Media Management",
   description:
-    "Google Ads and Meta Ads management for Shopify brands, with creative, CRO and product-level profitability analysis included. Managed against contribution profit, not platform ROAS.",
+    "Google Ads and Meta Ads management for Shopify brands, with creative, CRO and product-level profitability analysis included. Managed against profit, not platform ROAS.",
   path: "/managed-growth",
   keywords: [
     "Shopify paid media management",
@@ -50,7 +50,7 @@ const placeholderByPillar: Record<string, { label: string; width: number; height
   },
   "paid-social": {
     kind: "chart",
-    label: "Meta Ads spend scaled against blended MER and contribution profit",
+    label: "Meta Ads spend scaled against blended MER and profit",
     width: 1600,
     height: 1100,
     ratio: "~16:11",
@@ -108,7 +108,7 @@ export default function ManagedGrowthPage() {
         meta={[
           { label: "Retainer", value: `${managedService.priceFormatted} / month` },
           { label: "Platforms", value: "Google Ads + Meta Ads" },
-          { label: "Measured in", value: "Contribution profit" },
+          { label: "Measured in", value: "Profit" },
         ]}
       />
 
@@ -127,7 +127,7 @@ export default function ManagedGrowthPage() {
               <div className="flex h-full flex-col justify-center gap-6 text-[1.02rem] leading-relaxed text-ink-900/70">
                 <p>
                   We manage to a different standard. Every restructure, budget move and creative test
-                  is marked as an event in ScaleAble, and reviewed against contribution profit,
+                  is marked as an event in ScaleAble, and reviewed against profit,
                   contribution margin and blended MER across the whole store.
                 </p>
                 <p>
@@ -383,7 +383,7 @@ export default function ManagedGrowthPage() {
                   Every client runs on the ScaleAble platform.
                 </h2>
                 <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-900/65">
-                  It is how we see contribution profit, product-level margin and the effect of spend on
+                  It is how we see profit, product-level margin and the effect of spend on
                   organic and direct revenue. You get access to it too.
                 </p>
               </div>

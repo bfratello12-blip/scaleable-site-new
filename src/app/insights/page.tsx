@@ -13,13 +13,13 @@ import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Insights — Ecommerce Profitability & Paid Media Guides",
   description:
-    "Practical guides on measuring ecommerce advertising by contribution profit instead of platform ROAS — margins, break-even ROAS, MER, TACoS and profitable scaling.",
+    "Practical guides on measuring ecommerce advertising by profit instead of platform ROAS — margins, break-even ROAS, MER, TACoS and profitable scaling.",
   path: "/insights",
   keywords: [
     "ecommerce advertising guides",
     "Shopify paid media blog",
     "ecommerce profitability",
-    "contribution profit",
+    "profit",
     "break-even ROAS",
   ],
 });
@@ -57,7 +57,7 @@ export default function InsightsPage() {
             "@id": `${siteConfig.url}/insights#blog`,
             name: `${siteConfig.name} Insights`,
             description:
-              "Guides on ecommerce advertising profitability, contribution profit and paid media for Shopify brands.",
+              "Guides on ecommerce advertising profitability, profit and paid media for Shopify brands.",
             url: `${siteConfig.url}/insights`,
             publisher: { "@id": `${siteConfig.url}/#organization` },
             blogPost: posts.map((post) => ({
@@ -92,7 +92,7 @@ export default function InsightsPage() {
           </Button>
         }
         meta={[
-          { label: "Focus", value: "Contribution profit" },
+          { label: "Focus", value: "Profit" },
           { label: "Channels", value: "Google Ads + Meta Ads" },
           { label: "Platform", value: "Shopify" },
         ]}
@@ -148,7 +148,7 @@ export default function InsightsPage() {
       <CtaBand
         eyebrow="Next step"
         title="Want this done on your account instead of in a spreadsheet?"
-        body="We run Google Ads and Meta Ads for Shopify brands against contribution profit, using the same analytics these guides describe."
+        body="We run Google Ads and Meta Ads for Shopify brands against profit, using the same analytics these guides describe."
         location="insights_footer_cta"
       />
     </>

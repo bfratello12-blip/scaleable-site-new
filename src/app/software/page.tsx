@@ -15,7 +15,7 @@ import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "ScaleAble Software — Shopify Profit Analytics",
   description:
-    "ScaleAble connects Shopify, Google Ads and Meta Ads with your real product costs to show contribution profit, blended MER, product-level profitability and how ad spend affects every channel.",
+    "ScaleAble connects Shopify, Google Ads and Meta Ads with your real product costs to show profit, blended MER, product-level profitability and how ad spend affects every channel.",
   path: "/software",
   keywords: [
     "Shopify profit analytics",
@@ -55,7 +55,7 @@ export default function SoftwarePage() {
           url: siteConfig.softwareSiteUrl,
           installUrl: siteConfig.shopifyAppUrl,
           description:
-            "Shopify profit analytics that combines revenue, real product costs and advertising spend into contribution profit, contribution margin, blended MER and product-level profitability.",
+            "Shopify profit analytics that combines revenue, real product costs and advertising spend into profit, contribution margin, blended MER and product-level profitability.",
           publisher: { "@id": `${siteConfig.url}/#organization` },
         }}
       />
@@ -68,7 +68,7 @@ export default function SoftwarePage() {
             <br className="hidden sm:block" /> built for scaling decisions.
           </>
         }
-        lede="Shopify revenue, your real product costs and ad spend from Google and Meta in one model — so you can see contribution profit, not just what the ad platforms report about themselves."
+        lede="Shopify revenue, your real product costs and ad spend from Google and Meta in one model — so you can see profit, not just what the ad platforms report about themselves."
         actions={
           <>
             <Button

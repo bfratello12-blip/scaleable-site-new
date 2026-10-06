@@ -65,11 +65,11 @@ export const caseStudies: CaseStudy[] = [
       "Platform ROAS looked stable at 3.4x while contribution margin quietly eroded. Restructuring Shopping around product-level margin and cutting three unprofitable hero SKUs from paid rotation changed the economics without changing top-line spend.",
     heroMetric: {
       value: "+68%",
-      label: "Contribution profit",
+      label: "Profit",
       caption: "Same ad budget, different allocation",
     },
     metrics: [
-      { label: "Contribution profit", before: "$142k", after: "$239k", delta: "+68%", direction: "up", positive: true },
+      { label: "Profit", before: "$142k", after: "$239k", delta: "+68%", direction: "up", positive: true },
       { label: "Contribution margin", before: "18.4%", after: "27.1%", delta: "+8.7pt", direction: "up", positive: true },
       { label: "Blended MER", before: "2.9x", after: "3.8x", delta: "+31%", direction: "up", positive: true },
       { label: "Ad spend", before: "$74k", after: "$76k", delta: "+3%", direction: "up", positive: true, note: "Held broadly flat" },
@@ -82,7 +82,7 @@ export const caseStudies: CaseStudy[] = [
     approach: [
       {
         title: "Modelled true cost per product",
-        body: "COGS, shipping, fulfilment, processing fees and packaging were loaded into ScaleAble, producing contribution profit and margin for every SKU rather than a blended store-level number.",
+        body: "COGS, shipping, fulfilment, processing fees and packaging were loaded into ScaleAble, producing profit and margin for every SKU rather than a blended store-level number.",
       },
       {
         title: "Rebuilt Shopping around margin tiers",
@@ -94,11 +94,11 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Tested offers instead of bids",
-        body: "Bundle and AOV testing on the highest-margin range did more for contribution profit than any bid adjustment available in the accounts.",
+        body: "Bundle and AOV testing on the highest-margin range did more for profit than any bid adjustment available in the accounts.",
       },
     ],
     outcome: [
-      "Contribution profit grew while ad spend stayed effectively flat.",
+      "Profit grew while ad spend stayed effectively flat.",
       "Paid revenue dipped slightly in month two before recovering — visible in ScaleAble, and accepted deliberately because profit was rising.",
       "Budget decisions moved from monthly ROAS reviews to weekly profit checks with event markers on every change.",
     ],
@@ -129,7 +129,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { label: "Ad spend", before: "$121k", after: "$211k", delta: "+74%", direction: "up", positive: true },
       { label: "Shopify revenue", before: "$498k", after: "$902k", delta: "+81%", direction: "up", positive: true },
-      { label: "Contribution profit", before: "$96k", after: "$178k", delta: "+85%", direction: "up", positive: true },
+      { label: "Profit", before: "$96k", after: "$178k", delta: "+85%", direction: "up", positive: true },
       { label: "Contribution margin", before: "19.3%", after: "19.7%", delta: "+0.4pt", direction: "up", positive: true },
     ],
     problem: [
@@ -140,7 +140,7 @@ export const caseStudies: CaseStudy[] = [
     approach: [
       {
         title: "Established the profit ceiling",
-        body: "Historic spend and contribution profit were plotted together to find the spend level where incremental profit flattened — the real constraint, rather than a ROAS target someone picked.",
+        body: "Historic spend and profit were plotted together to find the spend level where incremental profit flattened — the real constraint, rather than a ROAS target someone picked.",
       },
       {
         title: "Built a creative testing system",
@@ -245,7 +245,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { label: "Organic + direct revenue", before: "$186k", after: "$240k", delta: "+29%", direction: "up", positive: true },
       { label: "Blended MER", before: "3.1x", after: "3.6x", delta: "+16%", direction: "up", positive: true },
-      { label: "Contribution profit", before: "$118k", after: "$167k", delta: "+42%", direction: "up", positive: true },
+      { label: "Profit", before: "$118k", after: "$167k", delta: "+42%", direction: "up", positive: true },
       { label: "Platform ROAS", before: "4.2x", after: "3.7x", delta: "−12%", direction: "down", positive: false, note: "Deliberately accepted" },
     ],
     problem: [
@@ -260,11 +260,11 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Ran a controlled spend test",
-        body: "Budget was increased in a defined window with event markers, and the effect on every channel — not just paid — was reviewed against contribution profit.",
+        body: "Budget was increased in a defined window with event markers, and the effect on every channel — not just paid — was reviewed against profit.",
       },
       {
         title: "Rewrote the reporting standard",
-        body: "Platform ROAS was demoted to a diagnostic. Contribution profit and blended MER became the numbers the team managed against.",
+        body: "Platform ROAS was demoted to a diagnostic. Profit and blended MER became the numbers the team managed against.",
       },
       {
         title: "Reallocated brand budget",
@@ -272,7 +272,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     outcome: [
-      "Platform ROAS fell and contribution profit rose — a trade the business could only justify because it was measurable.",
+      "Platform ROAS fell and profit rose — a trade the business could only justify because it was measurable.",
       "Organic and direct revenue moved with paid spend in a way the team could finally quantify.",
       "Reporting arguments stopped, because everyone was looking at the same profit number.",
     ],

@@ -35,7 +35,7 @@ function buildPoints(values: number[], max: number): Point[] {
 }
 
 /**
- * Dual-series chart: contribution profit as a filled area, ad spend as a line.
+ * Dual-series chart: profit as a filled area, ad spend as a line.
  * Each series is scaled independently — the point is the shape of the
  * relationship, not a shared magnitude.
  */
@@ -43,7 +43,7 @@ export function ProfitSpendChart({
   labels,
   profit,
   spend,
-  profitLabel = "Contribution profit",
+  profitLabel = "Profit",
   spendLabel = "Ad spend",
   tone = "dark",
   className,
@@ -194,7 +194,7 @@ export function ProfitSpendChart({
 
 /**
  * The homepage argument in one picture: platform-reported ROAS holding steady
- * while contribution profit falls away underneath it.
+ * while profit falls away underneath it.
  */
 export function DivergenceChart({ className }: { className?: string }) {
   const roas = [3.2, 3.3, 3.4, 3.35, 3.45, 3.4, 3.5, 3.45];
@@ -213,7 +213,7 @@ export function DivergenceChart({ className }: { className?: string }) {
         viewBox={`0 0 ${W} ${H}`}
         className="h-auto w-full"
         role="img"
-        aria-label="Illustration: platform-reported ROAS stays flat while contribution profit declines"
+        aria-label="Illustration: platform-reported ROAS stays flat while profit declines"
       >
         <defs>
           <linearGradient id="divergence-area" x1="0" y1="0" x2="0" y2="1">
@@ -255,7 +255,7 @@ export function DivergenceChart({ className }: { className?: string }) {
           textAnchor="end"
           fontFamily="ui-monospace, monospace"
         >
-          Contribution profit
+          Profit
         </text>
       </svg>
     </figure>
