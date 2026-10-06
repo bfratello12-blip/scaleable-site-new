@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DivergenceChart } from "@/components/charts/ProfitSpendChart";
 import { LeadForm } from "@/components/forms/LeadForm";
-import { LandingFooter, LandingHeader, StickyFormCta } from "@/components/landing/LandingChrome";
+import { LandingFooter, StickyFormCta } from "@/components/landing/LandingChrome";
 import { HeroConsole } from "@/components/marketing/HeroConsole";
 import { Button } from "@/components/ui/Button";
 import { FaqList } from "@/components/ui/Faq";
@@ -11,17 +11,18 @@ import { Section, SectionHeading, Shell } from "@/components/ui/Section";
 import type { Faq } from "@/content/faqs";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
 import { pageMetadata } from "@/lib/seo";
-import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
+import { BOOK_CALL_URL, LANDING_FORM_ANCHOR, managedService, siteConfig } from "@/lib/site";
 
 /**
  * Standalone landing page for paid Reddit traffic.
  *
- * Single conversion goal: the free profit analysis form at #profit-analysis.
- * Site navigation is suppressed by `ChromeGate` (see `lib/site.ts` BARE_ROUTE_PREFIXES),
- * and the page is noindexed so it never competes with the marketing site in organic.
+ * Primary conversion goal: the free profit analysis form at #profit-analysis.
+ * The shared site header is kept so visitors can explore the rest of the site,
+ * while `FooterGate` drops the site footer so the page ends on the form.
+ * Noindexed so it never competes with the marketing site in organic search.
  */
 
-const FORM_ANCHOR = "#profit-analysis";
+const FORM_ANCHOR = LANDING_FORM_ANCHOR;
 const CTA_LABEL = "Get my free profit analysis";
 
 export const metadata: Metadata = {
@@ -167,18 +168,8 @@ const faqs: Faq[] = [
 export default function RedditProfitAnalysisPage() {
   return (
     <>
-      <LandingHeader
-        ctaHref={FORM_ANCHOR}
-        ctaLabel="Get my free analysis"
-        note="Free profit analysis for Shopify brands"
-        location="lp_profit_analysis_header"
-      />
-
       {/* ---------------------------------------------------------------- HERO */}
-      <section
-        id="lp-main"
-        className="surface-ink overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-36 lg:pb-24 lg:pt-40"
-      >
+      <section className="surface-ink overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-40 lg:pb-24 lg:pt-44">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-grid opacity-50 mask-fade-b" />
         <Shell className="relative">
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)] lg:gap-16">

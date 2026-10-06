@@ -1,4 +1,4 @@
-import { isBareRoute } from "@/lib/site";
+import { isLandingRoute } from "@/lib/site";
 
 export const AD_SPEND_BANDS = [
   "Under $10k / month",
@@ -64,7 +64,7 @@ export function validateLead(input: unknown): ValidationResult {
   }
   // Landing routes trade the message for a lower-friction submit; everywhere
   // else it is the field that makes the first reply useful.
-  if (!isBareRoute(sourcePath) && message.length < 10) {
+  if (!isLandingRoute(sourcePath) && message.length < 10) {
     errors.message = "A sentence or two is enough — tell us what you need.";
   }
 

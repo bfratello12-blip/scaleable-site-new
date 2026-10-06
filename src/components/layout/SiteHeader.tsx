@@ -7,7 +7,7 @@ import { LogoLink } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
-import { BOOK_CALL_URL, primaryNav, siteConfig } from "@/lib/site";
+import { BOOK_CALL_URL, isLandingRoute, LANDING_FORM_ANCHOR, primaryNav, siteConfig } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -36,6 +36,26 @@ export function SiteHeader() {
   }, [open]);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+  // On a landing page the lead form is already on screen, so the free-analysis
+  // CTAs scroll to it instead of sending paid traffic off to /contact.
+  const onLanding = isLandingRoute(pathname);
+  const freeAnalysisHref = onLanding ? LANDING_FORM_ANCHOR : "/contact";
+
+  /**
+   * The mobile panel locks body scroll, so a same-page anchor cannot move the
+   * viewport until the panel closes. Close first, then scroll on the next
+   * macrotask once the lock has been released.
+   */
+  const closeAndScrollToForm = () => {
+    if (!onLanding) return;
+    setOpen(false);
+    setTimeout(() => {
+      document
+        .getElementById(LANDING_FORM_ANCHOR.slice(1))
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 0);
+  };
 
   return (
     <>
@@ -84,7 +104,7 @@ export function SiteHeader() {
 
           <div className="hidden items-center gap-2.5 lg:flex">
             <Button
-              href="/contact"
+              href={freeAnalysisHref}
               variant="light"
               size="sm"
               {...tracked(ANALYTICS_EVENTS.contactCta, "header")}
@@ -106,7 +126,7 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2 lg:hidden">
             <Button
-              href="/contact"
+              href={freeAnalysisHref}
               variant="primary"
               size="sm"
               className="h-10 whitespace-nowrap px-4 text-[0.8rem]"
@@ -181,11 +201,12 @@ export function SiteHeader() {
 
           <div className="flex flex-col gap-3 pb-6">
             <Button
-              href="/contact"
+              href={freeAnalysisHref}
               variant="primary"
               size="lg"
               className="w-full"
               trailingIcon
+              onClick={closeAndScrollToForm}
               {...tracked(ANALYTICS_EVENTS.contactCta, "mobile_nav")}
             >
               Get My Free Profit Analysis

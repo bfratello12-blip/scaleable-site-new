@@ -50,13 +50,18 @@ export const BOOK_CALL_IS_EXTERNAL = BOOK_CALL_URL.startsWith("http");
 export const MAILTO_CONTACT = `mailto:${siteConfig.contactEmail}`;
 
 /**
- * Standalone landing routes. They render without the shared header and footer
- * because every extra link on a paid-traffic page is a way out of the funnel.
+ * Standalone landing routes for paid traffic. They keep the site header so
+ * visitors can still reach the rest of the site, but drop the shared footer so
+ * the page ends on the lead form. `lib/lead.ts` also treats them as
+ * low-friction, making the message field optional.
  */
-export const BARE_ROUTE_PREFIXES = ["/lp"] as const;
+export const LANDING_ROUTE_PREFIXES = ["/lp"] as const;
 
-export function isBareRoute(pathname: string) {
-  return BARE_ROUTE_PREFIXES.some(
+/** On-page lead form anchor. Shared so header CTAs can target it directly. */
+export const LANDING_FORM_ANCHOR = "#profit-analysis";
+
+export function isLandingRoute(pathname: string) {
+  return LANDING_ROUTE_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 }
