@@ -114,23 +114,38 @@ export default function HomePage() {
               </Reveal>
 
               <Reveal delay={180}>
-                <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button
-                    href={BOOK_CALL_URL}
-                    size="lg"
-                    trailingIcon
-                    {...tracked(ANALYTICS_EVENTS.bookCall, "home_hero")}
+                <div className="mt-2 flex flex-col gap-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <Button
+                      href="/contact"
+                      size="lg"
+                      trailingIcon
+                      {...tracked(ANALYTICS_EVENTS.contactCta, "home_hero")}
+                    >
+                      Get My Free Profit Review
+                    </Button>
+                    <Button
+                      href={BOOK_CALL_URL}
+                      variant="light"
+                      size="lg"
+                      {...tracked(ANALYTICS_EVENTS.bookCall, "home_hero")}
+                    >
+                      Book a Call
+                    </Button>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="group w-fit text-[0.88rem] text-white/50 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
+                    {...tracked(ANALYTICS_EVENTS.contactCta, "home_hero_question")}
                   >
-                    Book a call
-                  </Button>
-                  <Button
-                    href="/managed-growth"
-                    variant="light"
-                    size="lg"
-                    {...tracked(ANALYTICS_EVENTS.contactCta, "home_hero")}
-                  >
-                    See what we manage
-                  </Button>
+                    Have a question first? Ask us{" "}
+                    <span
+                      aria-hidden="true"
+                      className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </Link>
                 </div>
               </Reveal>
 
