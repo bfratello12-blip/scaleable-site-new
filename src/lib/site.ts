@@ -5,10 +5,17 @@
 
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
+/**
+ * The live origin. Falls back to the production domain rather than a
+ * placeholder so canonicals, the sitemap, robots and the Reddit CAPI
+ * `event_source_url` stay correct even if the env var is missing.
+ */
+const DEFAULT_SITE_URL = "https://www.scaleableapp.com";
+
 export const siteConfig = {
   name: "ScaleAble",
   shortName: "ScaleAble",
-  url: rawSiteUrl && rawSiteUrl.length > 0 ? rawSiteUrl.replace(/\/$/, "") : "https://scaleable.com",
+  url: rawSiteUrl && rawSiteUrl.length > 0 ? rawSiteUrl.replace(/\/$/, "") : DEFAULT_SITE_URL,
   tagline: "Profit-first paid media for Shopify brands.",
   description:
     "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics — so scaling decisions are made on contribution profit, not platform ROAS.",

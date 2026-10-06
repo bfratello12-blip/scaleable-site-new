@@ -12,7 +12,7 @@ npm run dev                  # http://localhost:3000
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | production | Canonical origin for metadata, sitemap and OG tags. |
+| `NEXT_PUBLIC_SITE_URL` | no | Canonical origin for metadata, sitemap, OG tags and the Reddit CAPI event source URL. Defaults to `https://www.scaleableapp.com`. Set it only when deploying to a different domain. |
 | `NEXT_PUBLIC_BOOK_CALL_URL` | no | Scheduling link override. **Set this once** and every "Book a Call" CTA on the site updates. Defaults to `https://calendar.app.google/DipKGPYwU4EP6HK97`. |
 | `RESEND_API_KEY` | yes, for the lead form | Server-side only. Without it `/api/lead` returns `503 email_not_configured` and the form falls back to a pre-filled `mailto:` link. |
 | `LEAD_FROM_EMAIL` | no | Verified Resend sender. Defaults to the Resend onboarding sender. |
