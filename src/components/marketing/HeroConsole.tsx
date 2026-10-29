@@ -28,9 +28,8 @@ export function HeroConsole() {
           <span className="ml-2 min-w-0 truncate rounded-md bg-white/5 px-2.5 py-1 font-mono text-[0.62rem] text-white/45">
             app.scaleableapp.com / profit-overview
           </span>
-          <span className="ml-auto inline-flex shrink-0 items-center gap-1.5 rounded-full bg-profit-500/12 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.12em] text-profit-400">
-            <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-profit-400" />
-            live
+          <span className="ml-auto inline-flex shrink-0 items-center gap-1.5 rounded-full bg-white/8 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.12em] text-white/55">
+            Sample view
           </span>
         </div>
 
@@ -74,6 +73,10 @@ export function HeroConsole() {
         <p className="text-[0.6rem] uppercase tracking-[0.14em] text-white/40">Event marker</p>
         <p className="mt-0.5 text-[0.82rem] font-medium text-white">Meta budget +25% · Mar 04</p>
       </div>
+
+      <p className="mt-4 text-[0.75rem] leading-relaxed text-white/40">
+        Illustrative product view with sample figures — not client data.
+      </p>
     </div>
   );
 }

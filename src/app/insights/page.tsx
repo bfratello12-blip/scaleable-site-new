@@ -11,15 +11,15 @@ import { breadcrumbSchema, JsonLd, pageMetadata } from "@/lib/seo";
 import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Insights — Ecommerce Profitability & Paid Media Guides",
+  title: "Insights — Ecommerce Profitability & Agency Pricing Guides",
   description:
-    "Practical guides on measuring ecommerce advertising by profit instead of platform ROAS — margins, break-even ROAS, MER, TACoS and profitable scaling.",
+    "Practical guides on measuring ecommerce advertising by profit instead of platform ROAS — margins, break-even ROAS, MER, TACoS, profitable scaling and how performance-based agencies charge.",
   path: "/insights",
   keywords: [
     "ecommerce advertising guides",
+    "performance-based marketing agency",
     "Shopify paid media blog",
     "ecommerce profitability",
-    "profit",
     "break-even ROAS",
   ],
 });

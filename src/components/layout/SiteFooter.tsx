@@ -14,7 +14,9 @@ export function SiteFooter() {
           <div className="flex flex-col gap-6">
             <Logo tone="onDark" height={36} />
             <p className="max-w-sm text-[0.95rem] leading-relaxed text-white/60">
-              Paid search and paid social managed for Shopify brands — measured against profit inside our own analytics platform, not platform-reported ROAS.
+              A performance-based marketing agency for Shopify brands. We run Google Ads and Meta Ads
+              for a share of the eligible profit they produce — measured in our own profit analytics,
+              not platform-reported ROAS.
             </p>
             <div className="flex flex-col gap-1.5 text-sm">
               <a
@@ -25,7 +27,7 @@ export function SiteFooter() {
                 {siteConfig.contactEmail}
               </a>
               <p className="text-white/40">
-                Managed growth — {managedService.priceFormatted} {managedService.cadence}
+                Managed growth — {managedService.summaryShort}
               </p>
             </div>
           </div>
@@ -72,11 +74,11 @@ export function SiteFooter() {
             © {year} {siteConfig.name}. All rights reserved.
           </p>
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span>Shopify paid media management</span>
+            <span>Performance-based marketing agency</span>
             <span aria-hidden="true" className="text-white/20">
               /
             </span>
-            <span>Google Ads &amp; Meta Ads</span>
+            <span>Google Ads &amp; Meta Ads for Shopify</span>
             <span aria-hidden="true" className="text-white/20">
               /
             </span>

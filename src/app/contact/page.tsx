@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { PageHero } from "@/components/marketing/PageHero";
 import { Button } from "@/components/ui/Button";
@@ -9,11 +10,15 @@ import { breadcrumbSchema, JsonLd, pageMetadata } from "@/lib/seo";
 import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact — Talk to ScaleAble",
+  title: "Contact — Get a Free Shopify Profit Analysis",
   description:
-    "Tell us about your Shopify store and your current ad spend. We'll tell you where we'd expect to find profit before you commit to anything.",
+    "Tell us about your Shopify store and your current ad spend. We'll tell you where we'd expect to find profit, and whether a performance-based arrangement fits, before you commit to anything.",
   path: "/contact",
-  keywords: ["contact Shopify ads agency", "book a call paid media", "ecommerce growth consultation"],
+  keywords: [
+    "contact performance-based marketing agency",
+    "book a call paid media",
+    "ecommerce growth consultation",
+  ],
 });
 
 const expectations = [
@@ -27,7 +32,7 @@ const expectations = [
   },
   {
     title: "An honest answer on fit",
-    body: "If you're not on Shopify, or the numbers don't support a $1,500 retainer yet, we'll say so.",
+    body: "If you're not on Shopify, or the numbers don't support a profit-based arrangement yet, we'll say so rather than take the engagement.",
   },
 ];
 
@@ -64,7 +69,7 @@ export default function ContactPage() {
         lede="The more specific you are, the more useful the first conversation is. Store, spend, platforms, and the thing that's actually bothering you."
         meta={[
           { label: "Email", value: siteConfig.contactEmail },
-          { label: "Managed growth", value: `${managedService.priceFormatted} / month` },
+          { label: "Agency fee", value: managedService.summaryShort },
           { label: "Response", value: "Within one business day" },
         ]}
       />
@@ -117,6 +122,17 @@ export default function ContactPage() {
                       </li>
                     ))}
                   </ul>
+                  <p className="border-t border-ink-900/10 pt-5 text-[0.88rem] leading-relaxed text-ink-900/60">
+                    Our agency fee is {managedService.rateLabel} of monthly eligible profit after ad
+                    spend and agreed costs, capped at {managedService.capLabel} a month.{" "}
+                    <Link
+                      href="/pricing"
+                      className="font-medium text-brand-700 underline-offset-4 hover:underline"
+                    >
+                      See how the calculation works
+                    </Link>
+                    .
+                  </p>
                 </div>
 
                 <div className="flex flex-col gap-4 rounded-3xl border border-ink-900/10 bg-mist-100 p-8">

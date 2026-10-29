@@ -24,7 +24,7 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "ScaleAble — Profit-First Paid Media for Shopify Brands",
+    default: "ScaleAble — Performance-Based Marketing Agency for Shopify Brands",
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.name,
     url: siteConfig.url,
-    title: "ScaleAble — Profit-First Paid Media for Shopify Brands",
+    title: "ScaleAble — Performance-Based Marketing Agency for Shopify Brands",
     description: siteConfig.description,
     images: [{ url: "/og.png", width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ScaleAble — Profit-First Paid Media for Shopify Brands",
+    title: "ScaleAble — Performance-Based Marketing Agency for Shopify Brands",
     description: siteConfig.description,
     images: ["/og.png"],
   },

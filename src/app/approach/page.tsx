@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CtaBand } from "@/components/marketing/CtaBand";
 import { PageHero } from "@/components/marketing/PageHero";
 import { Button } from "@/components/ui/Button";
@@ -13,10 +14,11 @@ import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Our Approach — Profit-First Ecommerce Growth",
   description:
-    "How ScaleAble thinks about scaling Shopify brands: profit over platform ROAS, product-level margin over blended averages, and evidence over attribution arguments.",
+    "Why we built the analytics first and price the agency on profit: product-level margin over blended averages, evidence over attribution arguments, and a fee paid from the profit the work produces.",
   path: "/approach",
   keywords: [
-    "ecommerce growth agency approach",
+    "profit-based marketing agency",
+    "performance-based agency approach",
     "profit first paid media",
     "Shopify scaling strategy",
     "contribution margin advertising",
@@ -53,6 +55,11 @@ const principles = [
     number: "06",
     title: "Be willing to lose the vanity metric",
     body: "Sometimes the right call lowers platform ROAS and raises profit. We will make that recommendation, and we will show you the evidence behind it.",
+  },
+  {
+    number: "07",
+    title: "Get paid from the same number we argue for",
+    body: "Our agency fee is a share of eligible profit, capped each month, with nothing charged in a month that produces none. The incentive and the recommendation point the same way.",
   },
 ];
 
@@ -115,7 +122,15 @@ export default function ApproachPage() {
                 </p>
                 <p>
                   Once brands could see it, the next question was always the same: can you just run
-                  this for us? That is the managed growth service.
+                  this for us? That is the managed growth service — and because the profit is
+                  measurable, we could price it as a share of that profit rather than as a retainer.{" "}
+                  <Link
+                    href="/pricing"
+                    className="font-medium text-brand-700 underline-offset-4 hover:underline"
+                  >
+                    How our performance-based pricing works
+                  </Link>
+                  .
                 </p>
               </div>
             </Reveal>
@@ -136,7 +151,7 @@ export default function ApproachPage() {
                   </p>
                   <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-900/68">
                     Senior paid media management — the person who builds the strategy is the person in
-                    the accounts. Add the bio, background and credentials here.
+                    the accounts, and the person who reviews the profit numbers with you each month.
                   </p>
                 </div>
               </div>
@@ -153,7 +168,7 @@ export default function ApproachPage() {
             <SectionHeading
               tone="light"
               eyebrow="Operating principles"
-              title="Six rules we manage by."
+              title="Seven rules we manage by."
               lede="These are not values on a wall. They decide what we recommend when the profitable answer and the comfortable answer disagree."
             />
           </Reveal>

@@ -4,6 +4,7 @@ import { DivergenceChart } from "@/components/charts/ProfitSpendChart";
 import { CaseStudyCard } from "@/components/marketing/CaseStudyCard";
 import { CtaBand } from "@/components/marketing/CtaBand";
 import { HeroConsole } from "@/components/marketing/HeroConsole";
+import { PricingFacts } from "@/components/marketing/PricingFacts";
 import { ManagedPricingCard } from "@/components/marketing/PricingPanel";
 import { Button } from "@/components/ui/Button";
 import { FaqList } from "@/components/ui/Faq";
@@ -15,35 +16,43 @@ import { generalFaqs } from "@/content/faqs";
 import { engagementProcess, servicePillars } from "@/content/services";
 import { softwareOutputs } from "@/content/software";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
+import {
+  AGENCY_FEE_CAP,
+  AGENCY_FEE_CAP_LABEL,
+  AGENCY_FEE_RATE_LABEL,
+  AGENCY_OFFER_CLARIFICATION,
+  AGENCY_OFFER_SUMMARY,
+} from "@/lib/pricing";
 import { faqSchema, JsonLd, pageMetadata } from "@/lib/seo";
 import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "ScaleAble — Profit-First Paid Media for Shopify Brands",
+  title: "Performance-Based Marketing Agency for Shopify Brands",
   description:
-    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics. Scale on profit, not platform ROAS. $1,500/month, everything included.",
+    "No profit, no agency fee. ScaleAble manages Google Ads and Meta Ads for Shopify brands for 20% of monthly eligible profit after ad spend and agreed costs — capped at $3,000 a month, with no retainer or setup fee.",
   path: "/",
   keywords: [
-    "Shopify paid media management",
-    "Shopify advertising agency",
-    "Google Ads for Shopify",
-    "Meta Ads for Shopify",
-    "ecommerce paid media",
+    "performance-based marketing agency",
+    "performance-based ecommerce agency",
+    "performance-based marketing agency for Shopify",
+    "profit-based marketing agency",
+    "ecommerce agency with no retainer",
+    "Google Ads and Meta Ads management for Shopify brands",
     "Shopify profit analytics",
-    "ecommerce profitability",
   ],
 });
 
 const marqueeItems = [
+  "Performance-based pricing",
   "Google Ads",
   "Meta Ads",
-  "Profit",
+  "Eligible profit",
   "Product-level margin",
   "Blended MER",
   "Creative testing",
   "Conversion rate optimisation",
   "Shopify analytics",
-  "Scaling strategy",
+  "No retainer",
 ];
 
 const problems = [
@@ -72,16 +81,23 @@ export default function HomePage() {
           "@context": "https://schema.org",
           "@type": "Service",
           name: managedService.name,
-          serviceType: "Shopify paid media management",
+          serviceType: "Performance-based Google Ads and Meta Ads management for Shopify brands",
           provider: { "@id": `${siteConfig.url}/#organization` },
           areaServed: "Worldwide",
           audience: { "@type": "Audience", audienceType: "Shopify ecommerce brands" },
           offers: {
             "@type": "Offer",
-            price: managedService.price,
-            priceCurrency: managedService.currency,
             url: `${siteConfig.url}/pricing`,
             availability: "https://schema.org/InStock",
+            description: `Performance-based agency fee: ${AGENCY_FEE_RATE_LABEL} of monthly eligible profit after advertising spend and agreed direct costs, capped at ${AGENCY_FEE_CAP_LABEL} per month. No agency fee in a month without positive eligible profit. Clients fund advertising and business costs directly.`,
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              priceCurrency: managedService.currency,
+              minPrice: 0,
+              maxPrice: AGENCY_FEE_CAP,
+              unitCode: "MON",
+              description: `${AGENCY_FEE_RATE_LABEL} of monthly eligible profit, capped at ${AGENCY_FEE_CAP_LABEL} per month.`,
+            },
           },
         }}
       />
@@ -95,75 +111,70 @@ export default function HomePage() {
               <Reveal>
                 <p className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.05] px-3.5 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-300">
                   <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand-400" />
-                  Paid media for Shopify brands
+                  Performance-based marketing agency for Shopify brands
                 </p>
               </Reveal>
 
               <Reveal delay={60}>
-                <h1 className="text-[clamp(2.4rem,1.3rem+4vw,4.6rem)] leading-[0.98] text-white">
-                  We scale <span className="text-gradient-brand">profit</span>, not just revenue.
+                <h1 className="text-[clamp(2.6rem,1.4rem+4.2vw,4.9rem)] leading-[0.98] text-white">
+                  No profit.
+                  <br />
+                  <span className="text-gradient-brand">No agency fee.</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={120}>
-                <p className="max-w-xl text-[1.08rem] leading-relaxed text-white/68 sm:text-[1.15rem]">
-                  We manage Google Ads and Meta Ads for Shopify brands, using our own profit
-                  analytics platform to make every decision based on scaling profit — not
-                  platform-reported ROAS.
+                <p className="max-w-xl text-[1.08rem] leading-relaxed text-white/72 sm:text-[1.15rem]">
+                  {AGENCY_OFFER_SUMMARY}
+                </p>
+              </Reveal>
+
+              <Reveal delay={150}>
+                <p className="max-w-xl text-[0.95rem] leading-relaxed text-white/55">
+                  {AGENCY_OFFER_CLARIFICATION}
                 </p>
               </Reveal>
 
               <Reveal delay={180}>
                 <div className="mt-2 flex flex-col gap-4">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                    <Button
-                      href="/contact"
-                      size="lg"
-                      trailingIcon
-                      {...tracked(ANALYTICS_EVENTS.contactCta, "home_hero")}
-                    >
-                      Get My Free Profit Review
-                    </Button>
-                    <Button
-                      href={BOOK_CALL_URL}
-                      variant="light"
-                      size="lg"
-                      {...tracked(ANALYTICS_EVENTS.bookCall, "home_hero")}
-                    >
-                      Book a Call
-                    </Button>
-                  </div>
-                  <Link
+                  <Button
                     href="/contact"
-                    className="group w-fit text-[0.88rem] text-white/50 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
-                    {...tracked(ANALYTICS_EVENTS.contactCta, "home_hero_question")}
+                    size="lg"
+                    trailingIcon
+                    className="w-full sm:w-fit"
+                    {...tracked(ANALYTICS_EVENTS.contactCta, "home_hero")}
                   >
-                    Have a question first? Ask us{" "}
-                    <span
-                      aria-hidden="true"
-                      className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
+                    Get my free profit analysis
+                  </Button>
+                  <div className="flex flex-col gap-2 text-[0.9rem] sm:flex-row sm:items-center sm:gap-5">
+                    <Link
+                      href="/pricing"
+                      className="group w-fit font-medium text-brand-300 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
+                      {...tracked(ANALYTICS_EVENTS.pricingCta, "home_hero_secondary")}
                     >
-                      →
-                    </span>
-                  </Link>
+                      See how our pricing works{" "}
+                      <span
+                        aria-hidden="true"
+                        className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
+                    </Link>
+                    <a
+                      href={BOOK_CALL_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-fit text-white/50 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
+                      {...tracked(ANALYTICS_EVENTS.bookCall, "home_hero_secondary")}
+                    >
+                      Or book a 30-minute call
+                    </a>
+                  </div>
                 </div>
               </Reveal>
 
               <Reveal delay={240}>
-                <dl className="mt-7 grid grid-cols-2 gap-x-8 gap-y-5 border-t border-white/10 pt-7 sm:grid-cols-3">
-                  {[
-                    { label: "Managed growth", value: `${managedService.priceFormatted} / month` },
-                    { label: "Platforms", value: "Google Ads + Meta Ads" },
-                    { label: "Measured in", value: "Profit" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex flex-col gap-1">
-                      <dt className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-white/35">
-                        {item.label}
-                      </dt>
-                      <dd className="text-[0.95rem] font-medium text-white/85">{item.value}</dd>
-                    </div>
-                  ))}
-                </dl>
+                <PricingFacts tone="dark" showClarification={false} className="mt-7 border-t border-white/10 pt-7" />
               </Reveal>
             </div>
 
@@ -326,7 +337,15 @@ export default function HomePage() {
           <Reveal delay={140}>
             <p className="mx-auto mt-12 max-w-2xl text-center text-[1.05rem] leading-relaxed text-white/70">
               The result: scaling decisions made on evidence from your Shopify business, not on a
-              metric the ad platform grades itself with.
+              metric the ad platform grades itself with — and an agency fee calculated from the same
+              numbers you can see.{" "}
+              <Link
+                href="/managed-growth"
+                className="font-medium text-brand-300 underline-offset-4 hover:underline"
+              >
+                How the managed service works
+              </Link>
+              .
             </p>
           </Reveal>
         </Shell>
@@ -339,7 +358,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="What we manage"
               title="A full ecommerce growth function, not a bid-management service."
-              lede="Four workstreams run in parallel for every brand we take on. They are not add-ons or upsells — they are the job."
+              lede="Four workstreams run in parallel for every brand we take on, within a scope agreed before we start. They are not add-ons or upsells — they are the job our fee is paid from."
             />
           </Reveal>
 
@@ -535,24 +554,27 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------------- PRICING */}
-      <Section tone="white" size="md">
+      <Section tone="white" size="md" id="pricing">
         <Shell>
           <Reveal>
             <SectionHeading
               align="center"
-              eyebrow="Pricing"
-              title="One retainer. The whole growth function."
-              lede="No percentage of ad spend, no per-channel pricing, no separate creative invoice."
+              eyebrow="Performance-based pricing"
+              title="We get paid out of the profit, not before it."
+              lede={`${AGENCY_FEE_RATE_LABEL} of monthly eligible profit after ad spend and agreed direct costs. No retainer, no setup fee, no percentage of ad spend — and never more than ${AGENCY_FEE_CAP_LABEL} a month in agency fees.`}
             />
+          </Reveal>
+          <Reveal delay={80}>
+            <PricingFacts tone="light" className="mx-auto mt-10 max-w-4xl" />
           </Reveal>
           <Reveal delay={100}>
             <ManagedPricingCard location="home_pricing" className="mt-12" />
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-8 text-center text-[0.9rem] text-ink-900/55">
-              Want the detail?{" "}
+              Want the full calculation?{" "}
               <Link href="/pricing" className="font-medium text-brand-700 underline-offset-4 hover:underline">
-                See exactly what&apos;s included
+                See the formula, the fee calculator and worked examples
               </Link>
               .
             </p>

@@ -13,7 +13,7 @@ export type ServicePillar = {
   points: string[];
 };
 
-/** The four workstreams inside the managed growth retainer. */
+/** The four workstreams inside the performance-based managed service. */
 export const servicePillars: ServicePillar[] = [
   {
     id: "paid-search",
@@ -124,15 +124,15 @@ export type ProcessStep = {
 export const engagementProcess: ProcessStep[] = [
   {
     step: "01",
-    title: "Connect the data",
-    body: "ScaleAble is installed on your Shopify store and connected to Google Ads and Meta Ads. Before we touch a campaign, we can see revenue, spend and orders in one place.",
-    detail: ["Shopify install", "Google Ads connection", "Meta Ads connection"],
+    title: "Agree the calculation",
+    body: "Before anything is spent, we put the eligible business activity, the revenue and cost inputs and the measurement method in writing. That definition is what our fee is calculated from.",
+    detail: ["Eligible activity", "Cost inputs", "Measurement method"],
   },
   {
     step: "02",
-    title: "Model your real costs",
-    body: "COGS, shipping, fulfilment, processing fees, packaging and custom business expenses go in. That turns reported revenue into profit at the product level.",
-    detail: ["COGS & variable costs", "Custom expenses", "Contribution margin baseline"],
+    title: "Connect the data",
+    body: "ScaleAble is installed on your Shopify store and connected to Google Ads and Meta Ads, then COGS, shipping, fulfilment, processing fees and packaging go in. Reported revenue becomes profit at the product level.",
+    detail: ["Shopify install", "Ad platform connections", "COGS & variable costs"],
   },
   {
     step: "03",
@@ -143,7 +143,7 @@ export const engagementProcess: ProcessStep[] = [
   {
     step: "04",
     title: "Scale against profit guardrails",
-    body: "Spend moves in deliberate increments. Every change is marked as an event, and we watch what happens to profit, MER, organic and direct revenue — not just platform ROAS.",
-    detail: ["Event markers", "Profit guardrails", "Monthly strategy review"],
+    body: "Spend moves in deliberate increments. Every change is marked as an event, and we review profit, MER, organic and direct revenue together each month — alongside the eligible profit the fee is based on.",
+    detail: ["Event markers", "Profit guardrails", "Monthly fee review"],
   },
 ];

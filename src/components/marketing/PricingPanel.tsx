@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/Button";
 import { includedCapabilities } from "@/content/services";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
-import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
+import {
+  AGENCY_FEE_CAP_LABEL,
+  AGENCY_FEE_FORMULA,
+  AGENCY_FEE_RATE_LABEL,
+  AGENCY_OFFER_CLARIFICATION,
+} from "@/lib/pricing";
+import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 function Check({ className }: { className?: string }) {
@@ -42,50 +48,57 @@ export function ManagedPricingCard({
 
       <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-14">
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-brand-300">
-              Managed growth
+              Performance-based agency fee
             </p>
             <div className="flex items-baseline gap-2">
               <span className="font-display text-[clamp(2.8rem,2rem+3vw,4.25rem)] font-semibold leading-none tracking-[-0.045em] text-white">
-                {managedService.priceFormatted}
+                {AGENCY_FEE_RATE_LABEL}
               </span>
-              <span className="text-[1rem] text-white/50">{managedService.cadence}</span>
+              <span className="text-[1rem] text-white/50">of eligible profit</span>
             </div>
-            <p className="text-[0.85rem] text-white/45">
-              Flat retainer. Not a percentage of your ad spend.
+            <ul className="flex flex-col gap-1.5 text-[0.88rem] text-white/60">
+              <li>Calculated after ad spend and agreed direct costs, before our fee.</li>
+              <li>No positive eligible profit in a month? No agency fee that month.</li>
+              <li>
+                Capped at {AGENCY_FEE_CAP_LABEL} per month. No retainer, no setup fee, no minimum.
+              </li>
+            </ul>
+            <p className="rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2.5 font-mono text-[0.76rem] leading-relaxed text-white/60 sm:text-[0.8rem]">
+              {AGENCY_FEE_FORMULA}
             </p>
           </div>
 
           <p className="max-w-sm text-[0.98rem] leading-relaxed text-white/65">
             One team running paid search, paid social, creative and conversion work for your Shopify
-            store — measured against profit in the ScaleAble platform.
+            store — paid out of the profit it produces, measured in the ScaleAble platform.
           </p>
 
           <div className="flex flex-col gap-3">
             <Button
-              href={BOOK_CALL_URL}
+              href="/contact"
               size="lg"
               trailingIcon
+              className="w-full sm:w-auto lg:w-full"
+              {...tracked(ANALYTICS_EVENTS.contactCta, location)}
+            >
+              Get my free profit analysis
+            </Button>
+            <Button
+              href={BOOK_CALL_URL}
+              variant="light"
+              size="lg"
               className="w-full sm:w-auto lg:w-full"
               {...tracked(ANALYTICS_EVENTS.pricingCta, location)}
             >
               Book a call
             </Button>
-            <Button
-              href="/contact"
-              variant="light"
-              size="lg"
-              className="w-full sm:w-auto lg:w-full"
-              {...tracked(ANALYTICS_EVENTS.contactCta, location)}
-            >
-              Send us your numbers
-            </Button>
           </div>
 
-          <p className="text-[0.78rem] leading-relaxed text-white/40">
-            Every engagement starts with the ScaleAble app installed on your Shopify store — it is how
-            we measure what the advertising is actually doing.
+          <p className="text-[0.78rem] leading-relaxed text-white/45">
+            {AGENCY_OFFER_CLARIFICATION} ScaleAble software access is included — it is how we both
+            see what the advertising is doing.
           </p>
         </div>
 
@@ -137,7 +150,8 @@ export function SoftwareAccessCard({
       <p className="max-w-xl text-[0.98rem] leading-relaxed text-ink-900/65">
         ScaleAble is a Shopify app. Install it, load your real costs, connect Google Ads and Meta Ads,
         and you get profit, blended MER and product-level profitability on your own.
-        Plans and current pricing live on the app site.
+        Plans and current pricing for the standalone subscription live on the app site — managed
+        clients get access as part of the agency engagement, with no separate software charge.
       </p>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

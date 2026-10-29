@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LogoMark } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -84,10 +85,19 @@ export function CtaBand({
               <LogoMark tone="onDark" size={52} className="shrink-0 opacity-90" />
               <div className="text-sm leading-relaxed text-white/60">
                 <p className="font-medium text-white">
-                  {managedService.priceFormatted} {managedService.cadence}
+                  {managedService.rateLabel} of eligible profit
                 </p>
                 <p>
-                  Paid search, paid social, creative, CRO and profit analytics in one retainer.
+                  Capped at {managedService.capLabel} a month. No retainer, no setup fee, and no
+                  agency fee in a month without eligible profit.
+                </p>
+                <p className="mt-2">
+                  <Link
+                    href="/pricing"
+                    className="font-medium text-brand-300 underline-offset-4 hover:underline"
+                  >
+                    How our pricing works
+                  </Link>
                 </p>
               </div>
             </div>

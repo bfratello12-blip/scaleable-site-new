@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CtaBand } from "@/components/marketing/CtaBand";
 import { PageHero } from "@/components/marketing/PageHero";
 import { Button } from "@/components/ui/Button";
@@ -9,13 +10,14 @@ import { Section, SectionHeading, Shell } from "@/components/ui/Section";
 import { softwareFaqs } from "@/content/faqs";
 import { softwareDataPoints, softwareModules, softwareOutputs } from "@/content/software";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
+import { AGENCY_FEE_RATE_LABEL } from "@/lib/pricing";
 import { breadcrumbSchema, faqSchema, JsonLd, pageMetadata } from "@/lib/seo";
 import { BOOK_CALL_URL, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "ScaleAble Software — Shopify Profit Analytics",
+  title: "Shopify Profit Analytics Software for Ecommerce Brands",
   description:
-    "ScaleAble connects Shopify, Google Ads and Meta Ads with your real product costs to show profit, blended MER, product-level profitability and how ad spend affects every channel.",
+    "The Shopify profit analytics behind our performance-based agency work: real product costs, Google Ads and Meta Ads spend and revenue in one model, so profit measurement is transparent for both sides.",
   path: "/software",
   keywords: [
     "Shopify profit analytics",
@@ -301,6 +303,18 @@ export default function SoftwarePage() {
                   out of time to fix it. If you would rather have the campaign work, creative testing
                   and conversion changes handled, that is our managed growth service.
                 </p>
+                <p className="max-w-xl text-[1.02rem] leading-relaxed text-white/65">
+                  It is also what makes our{" "}
+                  <Link
+                    href="/pricing"
+                    className="font-medium text-brand-300 underline-offset-4 hover:underline"
+                  >
+                    performance-based pricing
+                  </Link>{" "}
+                  workable: the agency fee is {AGENCY_FEE_RATE_LABEL} of eligible profit, and this is
+                  where that profit is measured. Managed clients get software access included, with
+                  no separate software charge.
+                </p>
                 <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button
                     href={BOOK_CALL_URL}
@@ -321,6 +335,7 @@ export default function SoftwarePage() {
                   "We run the Google Ads and Meta Ads accounts",
                   "We build and test the creative",
                   "We recommend the onsite conversion changes",
+                  "Both sides review the same profit figures each month",
                   "You keep the profit data either way",
                 ].map((line) => (
                   <p key={line} className="flex gap-3 text-[0.92rem] leading-snug text-white/72">

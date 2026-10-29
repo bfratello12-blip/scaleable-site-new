@@ -3,6 +3,14 @@
  * contact details, pricing, external URLs, navigation and social links.
  */
 
+import {
+  AGENCY_FEE_CAP,
+  AGENCY_FEE_CAP_LABEL,
+  AGENCY_FEE_CURRENCY,
+  AGENCY_FEE_RATE,
+  AGENCY_FEE_RATE_LABEL,
+} from "@/lib/pricing";
+
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
 /**
@@ -16,23 +24,28 @@ export const siteConfig = {
   name: "ScaleAble",
   shortName: "ScaleAble",
   url: rawSiteUrl && rawSiteUrl.length > 0 ? rawSiteUrl.replace(/\/$/, "") : DEFAULT_SITE_URL,
-  tagline: "Profit-first paid media for Shopify brands.",
+  tagline: "Performance-based paid media for Shopify brands.",
   description:
-    "ScaleAble manages Google Ads and Meta Ads for Shopify brands using our own Shopify profit analytics — so scaling decisions are made on profit, not platform ROAS.",
+    "ScaleAble is a performance-based marketing agency for Shopify brands. We manage Google Ads and Meta Ads for 20% of monthly eligible profit after ad spend and agreed costs, capped at $3,000 a month. No retainer, no setup fee.",
   contactEmail: "hello@scaleableapp.com",
   softwareSiteUrl: "https://scaleableapp.com",
   shopifyAppUrl: "https://apps.shopify.com/scaleable",
   founder: "Brian Fratello",
 } as const;
 
-/** Managed growth retainer. Referenced everywhere pricing appears. */
+/**
+ * Performance-based agency fee. Numbers come from `lib/pricing` so the rate and
+ * the cap can never drift between pages.
+ */
 export const managedService = {
-  price: 1500,
-  priceFormatted: "$1,500",
-  currency: "USD",
-  cadence: "per month",
-  cadenceShort: "/mo",
   name: "ScaleAble Managed Growth",
+  currency: AGENCY_FEE_CURRENCY,
+  rate: AGENCY_FEE_RATE,
+  rateLabel: AGENCY_FEE_RATE_LABEL,
+  cap: AGENCY_FEE_CAP,
+  capLabel: AGENCY_FEE_CAP_LABEL,
+  /** Compact one-liner for dense UI such as the footer and nav descriptions. */
+  summaryShort: `${AGENCY_FEE_RATE_LABEL} of eligible profit, capped at ${AGENCY_FEE_CAP_LABEL}/mo`,
 } as const;
 
 /**
@@ -76,19 +89,23 @@ export const primaryNav: NavItem[] = [
   {
     label: "Managed Growth",
     href: "/managed-growth",
-    description: "Google Ads, Meta Ads, creative and CRO — run on profit data.",
+    description: "Performance-based Google Ads and Meta Ads management for Shopify brands.",
   },
   {
     label: "Software",
     href: "/software",
-    description: "The Shopify profit analytics behind every decision we make.",
+    description: "The Shopify profit analytics we measure every decision — and our fee — against.",
   },
   {
     label: "Results",
     href: "/results",
     description: "Case studies and measured ecommerce outcomes.",
   },
-  { label: "Pricing", href: "/pricing", description: "One retainer. Everything included." },
+  {
+    label: "Pricing",
+    href: "/pricing",
+    description: `${managedService.summaryShort}. No profit, no agency fee.`,
+  },
   { label: "Approach", href: "/approach", description: "How we think about scaling profitably." },
   {
     label: "Insights",
@@ -105,7 +122,8 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
       { label: "Google Ads for Shopify", href: "/managed-growth#paid-search" },
       { label: "Meta Ads for Shopify", href: "/managed-growth#paid-social" },
       { label: "Creative & CRO", href: "/managed-growth#creative" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "Performance-based pricing", href: "/pricing" },
+      { label: "Agency fee calculator", href: "/pricing#fee-calculator" },
     ],
   },
   {
@@ -124,6 +142,10 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
       { label: "Our Approach", href: "/approach" },
       { label: "Client Results", href: "/results" },
       { label: "Insights", href: "/insights" },
+      {
+        label: "What is a performance-based agency?",
+        href: "/insights/what-is-a-performance-based-marketing-agency",
+      },
       { label: "Contact", href: "/contact" },
       { label: "Book a Call", href: BOOK_CALL_URL },
     ],

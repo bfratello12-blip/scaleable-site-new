@@ -10,8 +10,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading, Shell } from "@/components/ui/Section";
 import type { Faq } from "@/content/faqs";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
+import { AGENCY_FEE_CAP_LABEL, AGENCY_FEE_RATE_LABEL } from "@/lib/pricing";
 import { pageMetadata } from "@/lib/seo";
-import { BOOK_CALL_URL, LANDING_FORM_ANCHOR, managedService, siteConfig } from "@/lib/site";
+import { BOOK_CALL_URL, LANDING_FORM_ANCHOR, siteConfig } from "@/lib/site";
 
 /**
  * Standalone landing page for paid Reddit traffic.
@@ -137,7 +138,7 @@ const returns = [
 const faqs: Faq[] = [
   {
     question: "Is the profit analysis actually free?",
-    answer: `Yes. The analysis itself costs nothing and carries no obligation — plenty of brands take it and act on it themselves, which is a perfectly good outcome. If you do want us running the accounts afterwards, managed growth is ${managedService.priceFormatted} per month, flat.`,
+    answer: `Yes. The analysis itself costs nothing and carries no obligation — plenty of brands take it and act on it themselves, which is a perfectly good outcome. If you do want us running the accounts afterwards, our agency fee is ${AGENCY_FEE_RATE_LABEL} of monthly eligible profit after ad spend and agreed costs, capped at ${AGENCY_FEE_CAP_LABEL} a month.`,
   },
   {
     question: "What do you need from us?",
@@ -156,7 +157,7 @@ const faqs: Faq[] = [
   },
   {
     question: "What happens if we want you to run the ads?",
-    answer: `Managed growth is ${managedService.priceFormatted} per month, flat — Google Ads, Meta Ads, creative, CRO and the ScaleAble analytics in one retainer. It is not a percentage of spend, so our incentive is never simply to spend more of your budget.`,
+    answer: `Managed growth is performance-based: ${AGENCY_FEE_RATE_LABEL} of monthly eligible profit after advertising spend and agreed direct costs, capped at ${AGENCY_FEE_CAP_LABEL} a month, with no retainer and no setup fee. A month with no positive eligible profit carries no agency fee. You fund your advertising and business costs directly, and the ScaleAble analytics are included.`,
   },
   {
     question: "Do you work with brands that aren't on Shopify?",
@@ -225,7 +226,7 @@ export default function RedditProfitAnalysisPage() {
                   <span>No obligation to hire us</span>
                   <span aria-hidden="true" className="h-1 w-1 rounded-full bg-brand-500/60" />
                   <span>
-                    Managed growth is {managedService.priceFormatted}/month if you want it
+                    Managed growth is {AGENCY_FEE_RATE_LABEL} of eligible profit if you want it
                   </span>
                 </p>
               </Reveal>
@@ -235,10 +236,10 @@ export default function RedditProfitAnalysisPage() {
                   {[
                     { label: "The analysis", value: "Free" },
                     {
-                      label: "Managed growth",
-                      value: `${managedService.priceFormatted} / month`,
+                      label: "Agency fee",
+                      value: `${AGENCY_FEE_RATE_LABEL} of eligible profit`,
                     },
-                    { label: "Measured in", value: "Profit" },
+                    { label: "Monthly cap", value: AGENCY_FEE_CAP_LABEL },
                   ].map((item) => (
                     <div key={item.label} className="flex flex-col gap-1">
                       <dt className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-white/35">
@@ -449,8 +450,8 @@ export default function RedditProfitAnalysisPage() {
                     body: "The person building the strategy is the person in the accounts.",
                   },
                   {
-                    label: `${managedService.priceFormatted} / month, flat`,
-                    body: "If you hire us: paid search, paid social, creative, CRO and analytics in one retainer.",
+                    label: `${AGENCY_FEE_RATE_LABEL} of eligible profit`,
+                    body: `If you hire us: paid search, paid social, creative, CRO and analytics, capped at ${AGENCY_FEE_CAP_LABEL} a month.`,
                   },
                   {
                     label: "Never a % of spend",
@@ -531,17 +532,20 @@ export default function RedditProfitAnalysisPage() {
 
                 <div className="rounded-3xl border border-white/10 bg-ink-850/60 p-8">
                   <h3 className="text-[1.1rem] leading-snug text-white">
-                    Free analysis. Paid service only if you want one.
+                    Free analysis. Paid service only if it makes you money.
                   </h3>
                   <p className="mt-3 text-[0.92rem] leading-relaxed text-white/60">
                     The analysis costs nothing and nothing is conditional on hiring us. If you do want
-                    us running Google Ads and Meta Ads afterwards, managed growth is{" "}
-                    {managedService.priceFormatted} per month, flat — paid search, paid social,
-                    creative, CRO and the analytics in one retainer, never a percentage of spend.
+                    us running Google Ads and Meta Ads afterwards, our agency fee is{" "}
+                    {AGENCY_FEE_RATE_LABEL} of monthly eligible profit after ad spend and agreed
+                    costs — no retainer, no setup fee, never more than {AGENCY_FEE_CAP_LABEL} a
+                    month, and nothing at all in a month without positive eligible profit.
                   </p>
                   <p className="mt-3 text-[0.92rem] leading-relaxed text-white/60">
-                    And if you&apos;re not on Shopify, or the numbers don&apos;t support that retainer
-                    yet, we&apos;ll say so — you still keep the analysis.
+                    You fund your advertising and business costs, and we agree how eligible profit is
+                    measured before we start. If you&apos;re not on Shopify, or the numbers
+                    don&apos;t support that arrangement yet, we&apos;ll say so — you still keep the
+                    analysis.
                   </p>
                   <p className="mt-5 border-t border-white/10 pt-5 text-[0.88rem] leading-relaxed text-white/50">
                     Prefer to talk it through first?{" "}

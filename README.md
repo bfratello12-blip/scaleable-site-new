@@ -24,13 +24,30 @@ npm run dev                  # http://localhost:3000
 
 | What | File |
 | --- | --- |
-| Email, pricing, Shopify app URL, booking URL, navigation, footer links | `src/lib/site.ts` |
+| Agency fee rate, cap, formula and fee maths | `src/lib/pricing.ts` |
+| Email, Shopify app URL, booking URL, navigation, footer links | `src/lib/site.ts` |
 | Managed service capabilities, pillars, onboarding steps | `src/content/services.ts` |
 | Software modules and screenshot slots | `src/content/software.ts` |
 | Case studies (currently placeholders) | `src/content/caseStudies.ts` |
 | FAQs | `src/content/faqs.ts` |
+| Insights articles | `src/content/insights.ts` |
 | Brand colours, type scale, motion | `src/app/globals.css` (`@theme` block) |
 | Lead email template and delivery | `src/app/api/lead/route.ts` |
+
+## Managed-service pricing
+
+The managed agency service is performance-based. Every page reads the numbers from
+`src/lib/pricing.ts`, so the rate and the cap cannot drift between pages:
+
+- `AGENCY_FEE_RATE` — 20% of monthly eligible profit.
+- `AGENCY_FEE_CAP` — $3,000 maximum total agency fee per month.
+- `calculateAgencyFee()` / `calculateFeeBreakdown()` — the fee maths behind the pricing-page
+  calculator, the worked examples and the tests in `src/lib/pricing.test.ts`.
+
+Eligible profit is calculated after advertising spend and agreed direct costs and before the
+agency fee; a month without positive eligible profit carries no fee. Clients fund advertising and
+business costs directly. The standalone ScaleAble Shopify app subscription is a separate offer and
+is not affected by any of this.
 
 ## Replacing the placeholder content
 
@@ -65,4 +82,5 @@ npm run dev        # dev server
 npm run build      # production build
 npm run start      # serve the production build
 npm run typecheck  # tsc --noEmit
+npm test           # node --test (pricing/fee calculation unit tests)
 ```

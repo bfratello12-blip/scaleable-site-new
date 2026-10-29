@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { AGENCY_FEE_CAP_LABEL, AGENCY_FEE_RATE_LABEL } from "@/lib/pricing";
 import { siteConfig } from "@/lib/site";
 
 export const contentType = "image/png";
@@ -68,11 +69,11 @@ export function GET() {
               display: "flex",
             }}
           >
-            Revenue is easy to grow. Profit is harder.
+            No profit. No agency fee.
           </div>
           <div style={{ fontSize: 30, color: "rgba(255,255,255,0.66)", maxWidth: 880, display: "flex" }}>
-            Google Ads and Meta Ads managed for Shopify brands — measured against real
-            profit, not platform ROAS.
+            Google Ads and Meta Ads managed for Shopify brands — {AGENCY_FEE_RATE_LABEL} of monthly
+            eligible profit after ad spend and agreed costs, capped at {AGENCY_FEE_CAP_LABEL}.
           </div>
         </div>
 
@@ -85,7 +86,7 @@ export function GET() {
             color: "rgba(255,255,255,0.5)",
           }}
         >
-          <div style={{ display: "flex" }}>Managed growth</div>
+          <div style={{ display: "flex" }}>Performance-based agency</div>
           <div style={{ display: "flex", color: "rgba(255,255,255,0.25)" }}>/</div>
           <div style={{ display: "flex" }}>Shopify profit analytics</div>
           <div style={{ display: "flex", color: "rgba(255,255,255,0.25)" }}>/</div>

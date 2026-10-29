@@ -2,8 +2,9 @@
  * Long-form SEO content for /insights.
  *
  * Articles are structured blocks rather than MDX so they stay type-checked and
- * render through the existing design system. Inline `**bold**` is the only
- * markup supported inside a block's text — see renderInline in ArticleBody.
+ * render through the existing design system. Inline `**bold**` and internal
+ * `[label](/path)` links are the only markup supported inside a block's text —
+ * see renderInline in ArticleBody.
  *
  * To publish a new post: append to `insights` with a unique slug. The index,
  * sitemap, JSON-LD and static params all derive from this array.
@@ -950,6 +951,271 @@ export const insights: InsightPost[] = [
       },
       { type: "p", text: "Because ultimately, a \"good\" ROAS isn't 3x, 4x, or 5x." },
       { type: "callout", body: "It's the ROAS that allows your business to grow profitably." },
+    ],
+  },
+
+  {
+    slug: "what-is-a-performance-based-marketing-agency",
+    title: "What Is a Performance-Based Marketing Agency?",
+    excerpt:
+      "Performance-based agencies tie their fee to a result instead of a monthly retainer. Here's how the main compensation models compare, how profit-based fees are actually calculated, what you still pay for, and the questions worth asking before you sign.",
+    description:
+      "How performance-based marketing agencies charge: retainers, percentage of ad spend, commission on revenue and profit-share fees compared, plus what to ask before signing.",
+    category: "Agency models",
+    keywords: [
+      "performance-based marketing agency",
+      "performance-based ecommerce agency",
+      "profit-based marketing agency",
+      "ecommerce agency with no retainer",
+      "agency pricing models",
+      "percentage of ad spend agency",
+      "performance marketing agency for Shopify",
+    ],
+    publishedAt: "2026-10-28",
+    readingMinutes: 12,
+    author: "Brian Fratello",
+    blocks: [
+      {
+        type: "p",
+        text: "A performance-based marketing agency ties some or all of its compensation to a measurable result rather than to the time it spends or the budget it manages.",
+      },
+      {
+        type: "p",
+        text: "That sounds simple. In practice, the phrase covers a wide range of arrangements, and the differences between them decide who carries the risk, what the agency is motivated to do, and whether the deal is good for either side.",
+      },
+      {
+        type: "p",
+        text: "This guide explains the common compensation models, how a profit-based fee is actually calculated, which costs matter, what a client still pays for, and the questions worth asking before you sign anything.",
+      },
+
+      { type: "h2", text: "The Four Common Agency Compensation Models" },
+      {
+        type: "p",
+        text: "Almost every agency arrangement is a variation on one of four structures, or a blend of them.",
+      },
+
+      { type: "h3", text: "1. The monthly retainer" },
+      {
+        type: "p",
+        text: "A fixed fee per month for an agreed scope of work. It is the most common model in paid media, and the easiest to administer on both sides.",
+      },
+      {
+        type: "ul",
+        items: [
+          "**Predictable** for budgeting, on both sides of the relationship.",
+          "**Decoupled from results** — the invoice is the same in a strong month and a bad one.",
+          "**Risk sits with the client.** You pay for the work whether or not it produced a return.",
+        ],
+      },
+      {
+        type: "p",
+        text: "A retainer is not a bad structure. It pays for senior time regardless of short-term volatility, which can be exactly what a brand in a rebuild needs. But it does mean the agency's income is insulated from the outcome.",
+      },
+
+      { type: "h3", text: "2. Percentage of ad spend" },
+      {
+        type: "p",
+        text: "The agency charges a percentage of the media budget it manages — the fee rises as spend rises.",
+      },
+      {
+        type: "ul",
+        items: [
+          "**Scales with workload**, which is a genuine argument in its favour: managing a large budget usually is more work.",
+          "**Rewards spending more**, which is an uncomfortable incentive when the right recommendation is to spend less.",
+          "**Says nothing about profitability.** Budget can grow while contribution margin shrinks.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The structural problem is easy to state: the one lever that always increases the agency's revenue is the lever the client should be most careful with.",
+      },
+
+      { type: "h3", text: "3. Commission on revenue" },
+      {
+        type: "p",
+        text: "A percentage of sales, usually attributed sales, sometimes total store revenue.",
+      },
+      {
+        type: "ul",
+        items: [
+          "**Tied to an outcome**, which is closer to performance-based than a retainer or a spend percentage.",
+          "**Revenue is not profit.** Discount-driven revenue, low-margin bestsellers and heavy shipping subsidies all inflate the number the fee is calculated on.",
+          "**Attribution becomes contentious.** If the fee depends on which orders count as attributed, both sides end up arguing about tracking rather than strategy.",
+        ],
+      },
+
+      { type: "h3", text: "4. Profit share" },
+      {
+        type: "p",
+        text: "The agency is paid a share of profit — revenue less an agreed set of costs — rather than a share of spend or revenue.",
+      },
+      {
+        type: "ul",
+        items: [
+          "**Closest alignment** between what the client wants and what the agency is paid for.",
+          "**Requires agreed definitions.** Profit is not a single universal number; it depends entirely on which costs are included.",
+          "**Requires trustworthy data.** If product costs are guessed at, the fee is calculated from a guess.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "The honest summary",
+        body: "No model is automatically fair. What matters is whether the number the fee is calculated from is one both sides can see, agree on and review.",
+      },
+
+      { type: "h2", text: "How a Profit-Based Fee Actually Works" },
+      {
+        type: "p",
+        text: "A profit-share fee has three moving parts: the percentage, the definition of the profit it applies to, and any cap or floor on the result.",
+      },
+      {
+        type: "p",
+        text: "Our own arrangement is a concrete example. We charge 20% of monthly eligible profit, calculated after advertising spend and agreed direct costs and before our fee, and the total agency fee is capped at $3,000 per month:",
+      },
+      {
+        type: "formula",
+        lines: ["Agency fee = min($3,000, 20% × max($0, monthly eligible profit))"],
+        caption: "If eligible profit is zero or negative, the agency fee is zero.",
+      },
+      {
+        type: "p",
+        text: "The word doing the most work in that sentence is **eligible**. Eligible profit means the profit from the business activity both sides agreed to work on, calculated using a method written down before the engagement starts. It is not audited net income, and it does not automatically sweep in every expense a business carries.",
+      },
+      {
+        type: "p",
+        text: "That definition has to be specific. At minimum, an agreement should state which revenue counts, which costs are deducted, who supplies the figures and how often the calculation is reviewed. You can see the full version of ours on our [pricing page](/pricing), including a fee calculator and worked examples.",
+      },
+
+      { type: "h2", text: "Which Costs Matter in the Calculation" },
+      {
+        type: "p",
+        text: "Because the fee is a share of what's left after costs, the cost list is the heart of the agreement. For an ecommerce business, the costs most often agreed as direct deductions are:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Advertising spend on the managed channels",
+          "Product costs (COGS)",
+          "Shipping and delivery",
+          "Fulfilment, picking, packing and packaging",
+          "Payment processing and transaction fees",
+        ],
+      },
+      {
+        type: "p",
+        text: "Costs that are usually discussed separately — and where agreements differ most — include returns and refunds, discounts and promotional allowances, duties and taxes, platform subscriptions, salaries and general overhead.",
+      },
+      {
+        type: "p",
+        text: "There is no universally correct answer about which of those belong inside the calculation. There is only a correct process: decide explicitly, write it down, and apply it consistently. Vagueness here is how profit-share arrangements turn sour six months in.",
+      },
+      {
+        type: "callout",
+        body: "If an agency cannot tell you precisely which costs come out before its percentage is applied, you do not yet have a performance-based agreement. You have a percentage.",
+      },
+
+      { type: "h2", text: "What the Client Still Pays For" },
+      {
+        type: "p",
+        text: "Performance-based pricing changes how the agency is paid. It does not make the rest of the business free, and any agency implying otherwise is overselling.",
+      },
+      {
+        type: "ul",
+        items: [
+          "**Advertising spend.** Media is paid by the client, directly to Google and Meta, on the client's own billing accounts.",
+          "**Cost of goods and fulfilment.** Products still have to be bought, picked, packed and shipped.",
+          "**Operating costs.** Staff, platform subscriptions, warehousing and the rest of the business continue as normal.",
+          "**Anything outside the agreed scope.** Work that was never part of the agreement is not quietly included because the fee is performance-based.",
+        ],
+      },
+      {
+        type: "p",
+        text: "A cap, where one exists, usually applies to the agency fee alone. Ours does: $3,000 per month is the ceiling on what we invoice, not a ceiling on advertising spend or on the cost of running the business.",
+      },
+
+      { type: "h2", text: "When This Structure Fits — and When It Doesn't" },
+      {
+        type: "p",
+        text: "Profit-share pricing suits some businesses well and others badly. Being honest about which is which saves both sides a difficult conversation later.",
+      },
+      { type: "h3", text: "It tends to work when" },
+      {
+        type: "ul",
+        items: [
+          "The business already sells at a level where advertising can plausibly produce measurable profit.",
+          "Product and fulfilment costs are known accurately rather than estimated.",
+          "The data source for revenue, spend and costs is shared and inspectable.",
+          "Both sides are comfortable writing the calculation down before work starts.",
+        ],
+      },
+      { type: "h3", text: "It tends not to work when" },
+      {
+        type: "ul",
+        items: [
+          "Costs cannot be pinned down, so the profit figure would be an argument rather than a fact.",
+          "The business needs a heavy fixed investment of time before any profit is plausible — a retainer may genuinely suit that better.",
+          "Margins are so thin that no realistic advertising performance produces a profit to share.",
+          "The two sides disagree about what the agency is actually responsible for.",
+        ],
+      },
+      {
+        type: "p",
+        text: "An agency that accepts every applicant for a profit-share arrangement is not being generous. It is either confident the fee is effectively guaranteed, or it has not thought the structure through.",
+      },
+
+      { type: "h2", text: "Questions to Ask a Performance-Based Agency" },
+      {
+        type: "p",
+        text: "Before signing, get clear written answers to each of these. The quality of the answers tells you more than the headline percentage.",
+      },
+      {
+        type: "ul",
+        items: [
+          "**What exactly is the percentage applied to?** Revenue, attributed revenue, gross profit, contribution profit, or a defined eligible profit figure?",
+          "**Which costs are deducted before the fee is calculated, and which are not?**",
+          "**Is the figure total performance within an agreed scope, or incremental performance above a baseline?** Both are defensible; they are very different in practice.",
+          "**Where does the data come from, and can I see it?** A fee based on a number only one party can see is a problem waiting to happen.",
+          "**Is there a cap, a floor, a minimum payment or a setup fee?**",
+          "**What happens in a month with no profit?**",
+          "**What is in scope, and what is billed separately?**",
+          "**How and when is the calculation reconciled, and what happens if we disagree?**",
+          "**What are the contract term and exit terms?**",
+        ],
+      },
+      {
+        type: "p",
+        text: "Treat vague answers as information. A structure that is genuinely performance-based can survive specific questions.",
+      },
+
+      { type: "h2", text: "Why Measurement Comes First" },
+      {
+        type: "p",
+        text: "Every profit-based arrangement depends on a profit number both parties trust. That is a measurement problem before it is a commercial one.",
+      },
+      {
+        type: "p",
+        text: "Ad platforms cannot solve it for you. Google Ads and Meta Ads report the conversions and revenue they can attribute to themselves; they have never seen your product costs, shipping, fulfilment or payment fees. A platform ROAS figure can look healthy while contribution margin falls.",
+      },
+      {
+        type: "p",
+        text: "That is the gap our [Shopify profit analytics](/software) was built to close: store revenue, real product and business costs, and ad spend from Google and Meta in one model, so profit, contribution margin and blended MER are visible to both sides of the engagement rather than asserted by one of them.",
+      },
+
+      { type: "h2", text: "In Short" },
+      {
+        type: "ul",
+        items: [
+          "Performance-based means the fee is tied to a result — but the result has to be defined precisely to mean anything.",
+          "Retainers, spend percentages, revenue commissions and profit shares all create different incentives.",
+          "Profit-based fees align incentives most closely, and demand the most rigour about costs and data.",
+          "Clients still fund advertising and business costs under any of these models.",
+          "The agreement is only as good as the written definition behind it.",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you want to see how this works in practice, our [performance-based managed service](/managed-growth) sets out the scope, the [pricing page](/pricing) shows the calculation and a fee calculator, and you can [send us your numbers](/contact) for a free profit analysis — including an honest answer on whether this structure suits your business at all.",
+      },
     ],
   },
 ];

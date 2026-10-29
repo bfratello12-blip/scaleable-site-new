@@ -1,17 +1,37 @@
+import Link from "next/link";
 import type { InsightBlock } from "@/content/insights";
 import { slugifyHeading } from "@/content/insights";
 
-/** Splits on `**bold**` and returns React nodes — never raw HTML. */
+/**
+ * Splits on `**bold**` and `[label](/path)` links and returns React nodes —
+ * never raw HTML. Links are internal paths only, which keeps article
+ * cross-linking crawlable without opening the door to arbitrary markup.
+ */
 function renderInline(text: string) {
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
-    part.startsWith("**") && part.endsWith("**") ? (
-      <strong key={i} className="font-semibold text-ink-900">
-        {part.slice(2, -2)}
-      </strong>
-    ) : (
-      part
-    ),
-  );
+  return text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\(\/[^)\s]*\))/g).map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-ink-900">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+
+    const link = /^\[([^\]]+)\]\((\/[^)\s]*)\)$/.exec(part);
+    if (link) {
+      return (
+        <Link
+          key={i}
+          href={link[2]}
+          className="font-medium text-brand-700 underline underline-offset-4 decoration-brand-700/30 transition-colors hover:decoration-brand-700"
+        >
+          {link[1]}
+        </Link>
+      );
+    }
+
+    return part;
+  });
 }
 
 function Block({ block }: { block: InsightBlock }) {

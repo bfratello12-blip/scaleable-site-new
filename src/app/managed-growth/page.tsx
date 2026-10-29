@@ -8,20 +8,25 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading, Shell } from "@/components/ui/Section";
 import { engagementProcess, includedCapabilities, servicePillars } from "@/content/services";
 import { ANALYTICS_EVENTS, tracked } from "@/lib/analytics";
+import {
+  AGENCY_FEE_CAP_LABEL,
+  AGENCY_FEE_RATE_LABEL,
+  AGENCY_OFFER_CLARIFICATION,
+} from "@/lib/pricing";
 import { breadcrumbSchema, JsonLd, pageMetadata } from "@/lib/seo";
-import { BOOK_CALL_URL, managedService, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Managed Growth — Shopify Paid Media Management",
+  title: "Managed Growth — Performance-Based Google Ads & Meta Ads for Shopify",
   description:
-    "Google Ads and Meta Ads management for Shopify brands, with creative, CRO and product-level profitability analysis included. Managed against profit, not platform ROAS.",
+    "Our performance-based ecommerce agency service: Google Ads and Meta Ads management, creative, CRO and product-level profit analysis for 20% of monthly eligible profit, capped at $3,000 a month.",
   path: "/managed-growth",
   keywords: [
-    "Shopify paid media management",
-    "Google Ads for Shopify",
-    "Meta Ads for Shopify",
+    "performance-based ecommerce agency",
+    "performance-based marketing agency for Shopify",
+    "Google Ads and Meta Ads management for Shopify brands",
+    "ecommerce agency with no retainer",
     "Shopify advertising agency",
-    "ecommerce paid media agency",
     "ecommerce conversion rate optimization",
   ],
 });
@@ -29,15 +34,15 @@ export const metadata: Metadata = pageMetadata({
 const fitFor = [
   "Shopify brands already spending meaningfully on advertising",
   "Founders and marketing teams who want profit, not a prettier dashboard",
-  "Businesses where product margins differ enough to matter",
-  "Teams willing to load real COGS and cost data",
+  "Businesses that can state product and fulfilment costs accurately",
+  "Teams happy to agree the eligible profit calculation in writing up front",
 ];
 
 const notFor = [
   "Brands looking for the cheapest possible media buyer",
   "Anyone who wants platform ROAS defended at all costs",
-  "Stores not on Shopify — the analytics won't work",
-  "Businesses that want reporting without changing decisions",
+  "Stores not on Shopify — we can't measure eligible profit the way this needs",
+  "Businesses where costs can't be pinned down well enough to share profit",
 ];
 
 const placeholderByPillar: Record<string, { label: string; width: number; height: number; ratio?: string; kind: "dashboard" | "chart" | "image" }> = {
@@ -80,35 +85,62 @@ export default function ManagedGrowthPage() {
           { name: "Managed Growth", path: "/managed-growth" },
         ])}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": `${siteConfig.url}/managed-growth#service`,
+          name: "ScaleAble Managed Growth",
+          serviceType: "Performance-based Google Ads and Meta Ads management for Shopify brands",
+          provider: { "@id": `${siteConfig.url}/#organization` },
+          areaServed: "Worldwide",
+          audience: { "@type": "Audience", audienceType: "Shopify ecommerce brands" },
+          url: `${siteConfig.url}/managed-growth`,
+          offers: {
+            "@type": "Offer",
+            url: `${siteConfig.url}/pricing`,
+            availability: "https://schema.org/InStock",
+            description: `Performance-based agency fee: ${AGENCY_FEE_RATE_LABEL} of monthly eligible profit after advertising spend and agreed direct costs, capped at ${AGENCY_FEE_CAP_LABEL} per month. No agency fee in a month without positive eligible profit.`,
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Included workstreams",
+            itemListElement: servicePillars.map((pillar) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: pillar.title },
+            })),
+          },
+        }}
+      />
 
       <PageHero
-        eyebrow="Managed growth"
+        eyebrow="Performance-based managed growth"
         title={
           <>
-            Paid media for Shopify brands,
-            <br className="hidden sm:block" /> managed against profit.
+            A performance-based agency
+            <br className="hidden sm:block" /> for Shopify brands.
           </>
         }
-        lede="Google Ads and Meta Ads built, restructured and scaled by an experienced operator — with creative, conversion work and product-level profitability analysis in the same engagement."
+        lede={`Google Ads and Meta Ads built, restructured and scaled by an experienced operator — with creative, conversion work and product-level profitability analysis in the same engagement. We are paid ${AGENCY_FEE_RATE_LABEL} of monthly eligible profit after ad spend and agreed costs, capped at ${AGENCY_FEE_CAP_LABEL} a month.`}
         actions={
           <>
             <Button
-              href={BOOK_CALL_URL}
+              href="/contact"
               size="lg"
               trailingIcon
-              {...tracked(ANALYTICS_EVENTS.bookCall, "managed_hero")}
+              {...tracked(ANALYTICS_EVENTS.contactCta, "managed_hero")}
             >
-              Book a call
+              Get my free profit analysis
             </Button>
             <Button href="/pricing" variant="light" size="lg">
-              {managedService.priceFormatted} / month — what&apos;s included
+              How our pricing works
             </Button>
           </>
         }
         meta={[
-          { label: "Retainer", value: `${managedService.priceFormatted} / month` },
+          { label: "Agency fee", value: `${AGENCY_FEE_RATE_LABEL} of eligible profit` },
+          { label: "Monthly cap", value: AGENCY_FEE_CAP_LABEL },
           { label: "Platforms", value: "Google Ads + Meta Ads" },
-          { label: "Measured in", value: "Profit" },
         ]}
       />
 
@@ -134,6 +166,18 @@ export default function ManagedGrowthPage() {
                   Sometimes that means accepting a lower platform ROAS because the business made more
                   money. That trade is only defensible when it is measurable — which is exactly why we
                   built the software.
+                </p>
+                <p>
+                  It is also why our fee is structured the way it is. We are paid{" "}
+                  {AGENCY_FEE_RATE_LABEL} of eligible profit, so the number we argue for is the
+                  number we are paid from.{" "}
+                  <Link
+                    href="/pricing"
+                    className="font-medium text-brand-700 underline-offset-4 hover:underline"
+                  >
+                    See the full fee calculation
+                  </Link>
+                  .
                 </p>
                 <p className="border-l-2 border-brand-600 pl-5 font-medium text-ink-900">
                   Your agency shouldn&apos;t be optimising from half the picture.
@@ -249,14 +293,14 @@ export default function ManagedGrowthPage() {
       })}
 
       {/* ---------------------------------------------------------- INCLUDED */}
-      <Section tone="white" size="md">
+      <Section tone="white" size="md" id="whats-included">
         <Shell>
           <Reveal>
             <SectionHeading
               align="center"
-              eyebrow="Everything in the retainer"
-              title="One price. No line items."
-              lede={`Managed growth is ${managedService.priceFormatted} ${managedService.cadence}. Creative, conversion work and analytics are not billed separately — they are part of doing the job properly.`}
+              eyebrow="Included in the performance fee"
+              title="One fee. No line items."
+              lede={`The managed service is ${AGENCY_FEE_RATE_LABEL} of monthly eligible profit, capped at ${AGENCY_FEE_CAP_LABEL}. Creative, conversion work and the ScaleAble analytics are not billed separately — they are part of doing the job properly.`}
             />
           </Reveal>
 
@@ -280,21 +324,74 @@ export default function ManagedGrowthPage() {
             ))}
           </div>
 
+          <Reveal delay={140}>
+            <p className="mx-auto mt-10 max-w-2xl text-center text-[0.92rem] leading-relaxed text-ink-900/60">
+              Scope is agreed before we start rather than promised as unlimited output, and{" "}
+              {AGENCY_OFFER_CLARIFICATION.charAt(0).toLowerCase() +
+                AGENCY_OFFER_CLARIFICATION.slice(1)}
+            </p>
+          </Reveal>
+
           <Reveal delay={160}>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button
-                href={BOOK_CALL_URL}
+                href="/contact"
                 size="lg"
                 trailingIcon
-                {...tracked(ANALYTICS_EVENTS.bookCall, "managed_included")}
+                {...tracked(ANALYTICS_EVENTS.contactCta, "managed_included")}
               >
-                Book a call
+                Get my free profit analysis
               </Button>
               <Button href="/pricing" variant="outline" size="lg">
-                See pricing detail
+                See the fee calculation
               </Button>
             </div>
           </Reveal>
+        </Shell>
+      </Section>
+
+      {/* ------------------------------------------------------ HOW WE'RE PAID */}
+      <Section tone="mist" size="md" id="how-were-paid">
+        <Shell>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+            <Reveal>
+              <SectionHeading
+                eyebrow="How we're paid"
+                title="A profit-based fee, agreed before the first campaign change."
+                lede="The commercial arrangement is deliberately simple, and it is written down before any work starts."
+              />
+            </Reveal>
+            <Reveal delay={100}>
+              <ul className="flex flex-col gap-5 text-[1rem] leading-relaxed text-ink-900/72">
+                <li className="rounded-2xl border border-ink-900/10 bg-white p-6 shadow-lift">
+                  <strong className="block text-ink-900">
+                    {AGENCY_FEE_RATE_LABEL} of monthly eligible profit
+                  </strong>
+                  Calculated after advertising spend and the direct costs we agree in writing, and
+                  before our fee.
+                </li>
+                <li className="rounded-2xl border border-ink-900/10 bg-white p-6 shadow-lift">
+                  <strong className="block text-ink-900">
+                    No eligible profit, no agency fee
+                  </strong>
+                  A month with zero or negative eligible profit carries no agency fee at all.
+                </li>
+                <li className="rounded-2xl border border-ink-900/10 bg-white p-6 shadow-lift">
+                  <strong className="block text-ink-900">
+                    Capped at {AGENCY_FEE_CAP_LABEL} a month
+                  </strong>
+                  Our total agency fee never exceeds the cap, however large eligible profit gets.{" "}
+                  <Link
+                    href="/pricing#fee-calculator"
+                    className="font-medium text-brand-700 underline-offset-4 hover:underline"
+                  >
+                    Try the fee calculator
+                  </Link>
+                  .
+                </li>
+              </ul>
+            </Reveal>
+          </div>
         </Shell>
       </Section>
 
@@ -305,8 +402,8 @@ export default function ManagedGrowthPage() {
             <SectionHeading
               tone="light"
               eyebrow="Onboarding"
-              title="The first month is about measurement, not motion."
-              lede="Changing campaigns before the profit picture exists is how agencies end up arguing about attribution six months later."
+              title="The first month is about agreement and measurement, not motion."
+              lede="Changing campaigns before the profit picture exists is how agencies end up arguing about attribution six months later — and when the fee comes out of profit, both sides need the calculation settled first."
             />
           </Reveal>
 
